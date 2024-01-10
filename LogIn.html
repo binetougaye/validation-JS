@@ -45,7 +45,8 @@
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse"
                             data-bs-parent="#accordionFlushExample">
-                            <p>Mot de passe oublié ? cliquer <a href=" " id="forgetpassword">ICI</a> pour le reinitialiser</p>
+                            <a id="forgetpassword">Mot de passe oublié ?<i
+                                    class="fa-solid fa-chevron-right"></i></a>
                             <a href=" ">Autres choses ?<i class="fa-solid fa-chevron-right"></i></a>
                         </div>
                     </div>
@@ -79,8 +80,8 @@
 
         let Email = document.getElementById("email")
         let Password = document.getElementById("password")
-        let MainForm = document.getElementById("MainForm")
         let forgetpassword = document.getElementById("forgetpassword")
+        let MainForm = document.getElementById("MainForm")
 
         // function pour la connexion des admins
 
@@ -107,8 +108,6 @@
                 console.log(error.message);
             })
         }
-        
-        // function pour la reinitialisation du mot de passe
 
         let ForgetPassword = () => {
             sendPasswordResetEmail(auth, Email.value)
@@ -122,8 +121,8 @@
                 })
         }
 
-        MainForm.addEventListener('submit', signInUser);
         
+        MainForm.addEventListener('submit', signInUser);
         forgetpassword.addEventListener('click', ForgetPassword)
 
     </script>
