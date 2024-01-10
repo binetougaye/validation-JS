@@ -1,12 +1,7 @@
-body{
-    background: linear-gradient(45deg, #a6a0a0, #edc0c0, );
-    background-size: cover;
-}
 form {
     border: 2px solid #9b9898;
-    border-radius: 25px 0 25px 0;
+    border-radius: 50px 0 50px 0;
     margin-bottom: 10px;
-    background: white;
     font-size: small;
 }
 
@@ -29,4 +24,13 @@ legend{
     font-size: 13px !important;
     font-weight: bold !important;
     text-align: left !important;
+}
+
+.accordion-collapse{
+    display: grid;
+    margin: 5px;
+}
+.fa-solid{
+    font-size: 10px;
+    margin-left: 5px;
 }
