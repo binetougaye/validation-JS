@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;1,100;1,300;1,400&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    /* outline: 1px solid red; */
+}
+
+body {}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.card {
+    position: relative;
+}
+
+.clothes {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    text-decoration: underline;
+    text-wrap: nowrap;
+    /* text-shadow: 2px 2px #FFF; */
+    transform: rotate(350deg);
+}
+
+.clothes2 {
+    cursor: pointer;
+    position: absolute;
+    top: 55%;
+    left: 20%;
+    text-decoration: underline;
+    text-wrap: nowrap;
+}
+
+.img {
+    /* transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; */
+    transition: filter 0.3s ease-in-out;
+    /* opacity: 1; */
+    /* width: 400px; */
+}
+
+.img:hover {
+    /* opacity: 0.7; */
+    /* background: rgba(255, 255, 255, 0); */
+    filter: brightness(70%);
+    /* transform: scale(1.1); */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) */
+}
+
+
+#btn {
+    background-color: #111;
+}
+
+.price {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    font-size: 69px;
+    /* text-decoration: underline; */
+    /* text-wrap: nowrap; */
+    /* text-shadow: 2px 2px #FFF; */
+}
+
+.img {
+    /* width: 1024px; */
+    width: 100%;
+    /* height: 400px; */
+    /* object-fit: cover; */
+    /* overflow: hidden; */
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+footer {
+    display: flex;
+}
+
+.footerLeft {
+    flex: 2;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.fMenuTitle {
+    font-size: 16px;
+}
+
+.fList {
+    padding: 0;
+    list-style: none;
+}
+
+.fListItem {
+    margin-bottom: 10px;
+    color: gray;
+    cursor: pointer;
+}
+
+.footerRight {
+    flex: 1;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.fInput {
+    padding: 5px;
+}
+
+.fButton {
+    padding: 5px;
+    background-color: black;
+    color: white;
+}
+
+.fIcons {
+    display: flex;
+}
+
+.fIcon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.copyright {
+    font-weight: 300;
+    font-size: 14px;
+}
+
+/* MYSTYLE */
+.modalBtn {
+    background-color: #111;
+}
+
+.span {
+    position: relative;
+    left: -23px;
+    text-align: center;
+    /* font-size: 15px; */
+}
+
+.test {
+    color: #fff;
+}
+
+.dark {
+    background-color: #212529;
+    /* border: 5px solid #000; */
+
+}
+
+.bi {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+a {
+    background-color: #FFF;
+    opacity: 0.7;
+    text-decoration: none;
+    /* transition: all ease-in-out 10ms; */
+}
+
+.text-middle {
+    text-wrap: nowrap;
+}
+
+.bg {
+    /* background-image: url("img/shop.webp");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+    position: relative;
+}
+
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.middle h1 {
+    font-size: 70px;
+}
+
+
+
+.buttons {
+    display: flex;
+    /* flex-wrap: wrap; */
+    background-color: #000;
+    position: absolute;
+    bottom: 30px;
+    justify-content: center;
+    align-items: center;
+    right: 0;
+    padding: 15px;
+    opacity: 0.7;
+    width: 100%;
+    display: none;
+}
+
+.card button {
+    border: 2px solid #c0392b;
+    color: #c0392b;
+    background-color: transparent;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.card button:hover {
+    background-color: #c0392b;
+    color: #fff;
+    opacity: 1;
+
+}
+
+.icon {
+    position: absolute;
+    top: 7px;
+    right: 3px;
+    padding: 3px;
+    color: #fff;
+}
+
+
+
+@media screen and (max-width:480px) {
+    nav {
+        padding: 20px;
+    }
+
+
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footerLeft {
+        padding: 20px;
+        width: 90%;
+    }
+
+    .footerRight {
+        padding: 20px;
+        width: 90%;
+        align-items: center;
+        background-color: whitesmoke;
+    }
+
+}
