@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau CRUD avec Catégories</title>
+    <link rel="stylesheet" href="Ajouts-de-nouvelles-catégories(CRUD).css">
+</head>
+<body>
+    <div id="app">
+        <button onclick="openModal('addProductModal')">Ajouter</button>
+        <table id="productTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Catégorie</th>
+                    <th>Sous-Catégories</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="productTableBody">
+            </tbody>
+        </table>
+    </div>
+    <div id="addProductModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addProductModal')">&times;</span>
+            <h2>Ajouter de Ajouts-de-nouvelles-catégories</h2>
+            <form id="addProductForm">
+                <label for="productCategory">Catégorie:</label>
+                <select id="productCategory" required>
+         <option value="" id="catwomen">Femmes</option>
+         <option value="" id="catmen">Hommes</option>
+         <option value="" id="teens">Adolescents</option>
+         <option value="" id="children">Enfants</option>
+              
+         <label for="productName">Sous-Catégories:</label>
+         <input type="text" id="productName" required>
+
+                </select>
+                <button type="button" onclick="addProduct()">Ajouter</button>
+            </form>
+        </div>
+    </div>
+    <script src="Ajouts-de-nouvelles-catégories(CRUD).js"></script>
+</body>
+</html>
