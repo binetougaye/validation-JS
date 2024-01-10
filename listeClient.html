@@ -23,18 +23,10 @@
                 <th scope="col">Action</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            
-        </tbody>
+        <tbody id="tbody"></tbody>
     </table>
 
-    <script type="module">
+    <!-- <script type="module">
 
     // import { initializeApp } from "firebase/app";
     // import { collection, getFirestore } from "firebase/firestore";
@@ -73,7 +65,112 @@
         console.log("No such document!");
     }
 
+    </script> -->
+
+    <script type="module">
+
+        let user = 0;
+        let tbody = document.getElementById('tbody');
+
+        function addItemToTable(nom, email, action) {
+            let trow = document.createElement('tr');
+            let td1 = document.createElement('td');
+            let td2 = document.createElement('td');
+            let td3 = document.createElement('td');
+            let td4 = document.createElement('td');
+
+            td1.innerHTML = ++user;
+            td2.innerHTML = nom;
+            td3.innerHTML = email;
+            td4.innerHTML = action;
+
+            trow.appendChild(td1);
+            trow.appendChild(td2);
+            trow.appendChild(td3);
+            trow.appendChild(td4);
+
+            tbody.appendChild(trow);
+
+        }
+
+
+        function addAllItemToTable(users) {
+            user = 0;
+            tbody.innerHTML = '';
+            users.forEach(element => {
+                addItemToTable(element.firstname, element.lastname, element.email, element.action);
+            });
+        }
+
+
+        // Firestore
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAWpBSXZ0zYov-GkuQRl5vfiq9V6UkfsDE",
+            authDomain: "validation-js-2024.firebaseapp.com",
+            databaseURL: "https://validation-js-2024-default-rtdb.firebaseio.com",
+            projectId: "validation-js-2024",
+            storageBucket: "validation-js-2024.appspot.com",
+            messagingSenderId: "565787116440",
+            appId: "1:565787116440:web:d6eb3365dbd8c71d70a1ed",
+            measurementId: "G-E3S1WFF6H2"
+        };
+
+
+            // Initialize Firestore
+
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const db = getFirestore(app);
+
+
+        // Firestore
+
+        function getAllDataOnce() {
+            const userAutListRef = collection(db, 'UserAutList');
+            getDocs(userAutListRef)
+                .then((querySnapshot) => {
+                    let utilisateurs = [];
+
+                    querySnapshot.forEach((doc) => {
+                        utilisateurs.push(doc.data());
+                    });
+
+                    addAllItemToTable(utilisateurs);
+                })
+                .catch((error) => {
+                    console.error("Error getting documents: ", error);
+                });
+        }
+
+
+
+        // Recuperation des données en temps reel
+        // function getAllDataRealTime() {
+        //     const dbRef = ref(db, 'UserAutList');
+            
+        //     onValue(dbRef, (snapshot) => {
+        //         let utilisateurs = [];
+
+        //         snapshot.forEach(childSnapshot => {
+        //             utilisateurs.push(childSnapshot.val())
+        //         });
+
+        //         addAllItemToTable(utilisateurs);
+        //     })
+        // }
+
+        window.onload = getAllDataOnce;
+
+        // allow read, write: if request.auth != null;
+
     </script>
+
 </body>
 
 </html>
