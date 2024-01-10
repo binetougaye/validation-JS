@@ -1,148 +1,76 @@
-.container-fluid {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), transparent), url('./img/pull.jpeg') no-repeat;
-  background-size: cover;
+body{
+  margin: 0;
+  padding: 0;
+  background-color: antiquewhite;
 }
 
-.list-group {
-  text-align: center;
+/*-------------------- SIDEBAR --------------------*/
+
+h1{
+  font-style: italic;
 }
 
-.list-group a {
-  background-color: initial;
-  margin: 3px;
+a{
+  text-decoration: none;
+  background-color: #fff;
+  color: black;
+  padding: 7% 5%;
+  margin-bottom: 5%;
+}
+
+
+
+i{
+  margin-right: 4%;
+}
+
+ul{
+  list-style: none;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 35%;
+  margin-bottom: 15%;
+}
+
+li{
+  margin-bottom: 5%;
+  background-color: #fff;
+}
+
+
+#sidebar{
+  width: 20%;
+}
+
+#sidebar button{
+  margin-bottom: 5%;
+  padding: 7% 5%;
   border: none;
 }
 
-.active {
-  background: #94f7e6 !important;
-  color: #000 !important;
+
+
+
+
+#dashboard{
+  width: 80%;
+  /* margin: auto; */
 }
 
-.list-group a:hover {
-  background-color: #94f7e6 !important;
-}
 
-.tabpane .active {
-  background-color: transparent !important;
+#dashboard .row{
+  margin: 0 1%;
 }
-
-#signoutbutton {
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  font-style: italic;
-  background-color: #94f7e6;
-  border: 1px solid transparent;
-  transition: border-color 0.3s ease;
-  margin-top: 0;
-  margin-top: 100px;
-  margin-left: 20px;
-  margin-bottom: 25px;
-}
-
-#signoutbutton:hover {
-  background-color: #fff;
-  border-color: #94f7e6;
-}
-
-#dashboard {
-  display: inline-flex;
-}
-
 
 #dashboard .card {
-  width: 300px;
-  height: 125px;
-  margin: 10px auto;
+  width: 25%;
+  height: 185px;
 }
 
-#dashboard .v1 {
-  border-radius: 8px;
-  background: #fff;
-}
 
-#dashboard .v2 {
-  border-radius: 8px;
-  background: #fff;
-}
-
-#dashboard .v3 {
-  border-radius: 8px;
-  background: #fff;
-}
-
-#dashboard .v4 {
-  border-radius: 8px;
+button{
   background-color: #fff;
-}
-
-
-
-.profile-pic span {
-  display: inline-flex;
-  padding: .2em;
-  height: 2em;
-}
-
-.profile-pic {
-  display: flex;
-  margin-top: 50px;
-  justify-content: center;
-  align-items: center;
-  width: 200px;
-  height: 200px;
-  flex-direction: column;
-}
-
-
-
-label {
-  width: 100px;
-  height: 100px;
-  cursor: pointer;
-  justify-content: center;
-  align-items: center;
-}
-
-label:hover>.fa-solid {
-  display: block;
-}
-
-label:hover {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, .8);
-  z-index: 10000;
-  color: rgb(250, 250, 250);
-  transition: background-color .2s ease-in-out;
-  border-radius: 100px;
-}
-
-
-
-.bar {
-  width: 100px;
-  height: 15px;
-  background: gray;
-}
-
-
-label:hover>.img {
-  margin-top: -4px;
-}
-
-.img {
-  width: 100px;
-  height: 100px;
-  border: 5px solid #94f7e6;
-  position: absolute;
-  object-fit: cover;
-  box-shadow: 0 0 10px 0 rgba(255, 255, 255, .35);
-  border-radius: 100px;
-  z-index: 0;
-}
-
-.imageUploaded {
-  margin-top: 10px;
 }
