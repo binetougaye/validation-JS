@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image" href="Logo.png">
+    <link rel="stylesheet" href="Authentification.css">
+    <title>Registration page</title>
+</head>
+
+<body>
+    <!-- ===============================FORMILAIRE D'INSCRIPTION================================= -->
+
+    <div class="container">
+        <div class="row col-md-4 mx-auto mt-3">
+            <img src="Logo.png" alt="">
+            <form action="" id="MainForm">
+                <div class="text-head">
+                    <h3 class="mb-3">Créer un compte</h3>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="fnameInp" placeholder=".........">
+                    <label for="fnameInp">Your Firstname</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="lnameInp" placeholder=".........">
+                    <label for="lnameInp">Your Lastname</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="email" placeholder=".........">
+                    <label for="email">Your Email address</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                    <label for="password">Your Password</label>
+                    <span> Les mots de passe doivent au moins avoir 6 caractères.</span>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 mx-auto mb-3">Submit</button>
+                <a href="LogIn.html" style="text-decoration: none;"><input type="button" class="bg-primary text-light form-control"
+                    value="cliquez ici pour vous connecter"></a>
+
+                <p>
+                    En créant un compte, vous acceptez les <a href="/">conditions d'utilisation et de vente</a> de belle
+                    gueule.
+                    Consultez notre <a href="/">déclaration de confidentialité</a>, <a href="/">notre politique relative
+                        aux cookies</a>
+                    ainsi que notre <a href="/">politique relative aux publicités ciblées par centres d’intérêts</a>.
+                </p>
+                <hr>
+                <p>Vous possédez déjà un compte ? <a href="LogIn.html">Identifiez-vous</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+<script type="module">
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyAWpBSXZ0zYov-GkuQRl5vfiq9V6UkfsDE",
+        authDomain: "validation-js-2024.firebaseapp.com",
+        projectId: "validation-js-2024",
+        storageBucket: "validation-js-2024.appspot.com",
+        messagingSenderId: "565787116440",
+        appId: "1:565787116440:web:d6eb3365dbd8c71d70a1ed",
+        measurementId: "G-E3S1WFF6H2"
+    };
+
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase();
+    const auth = getAuth(app);
+
+
+    let FnameInp = document.getElementById("fnameInp")
+    let LnameInp = document.getElementById("lnameInp")
+    let Email = document.getElementById("email")
+    let Password = document.getElementById("password")
+    let MainForm = document.getElementById("MainForm")
+
+    // function pour enregistrer les nouveaux admins
+    let RegisterUser = evt => {
+        evt.preventDefault();
+
+        createUserWithEmailAndPassword(auth, Email.value, Password.value)
+            .then((credentials) => {
+                set(ref(db, "UserAuthList" + credentials.user.uid), {
+                    firstname: FnameInp.value,
+                    lastname: LnameInp.value
+                });
+            })
+            .catch((error) => {
+                alert(error.message);
+                console.log(error.code);
+                console.log(error.message);
+            })
+        window.alert("Compte créer avec succèes, Merci")
+    }
+    
+    MainForm.addEventListener('submit', RegisterUser);
+</script>
+<!-- BOOTSATRAP LINK  -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+</html>

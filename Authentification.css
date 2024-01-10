@@ -1,0 +1,32 @@
+body{
+    background: linear-gradient(45deg, #a6a0a0, #edc0c0, );
+    background-size: cover;
+}
+form {
+    border: 2px solid #9b9898;
+    border-radius: 25px 0 25px 0;
+    margin-bottom: 10px;
+    background: white;
+    font-size: small;
+}
+
+.form-floating span {
+    font-size: 12px;
+    align-items: center;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.text-head {
+    margin: 10px 0;
+}
+
+legend{
+    font-size: 13px !important;
+    font-weight: bold !important;
+    text-align: left !important;
+}
