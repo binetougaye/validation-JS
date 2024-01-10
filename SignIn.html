@@ -37,8 +37,7 @@
                     <span> Les mots de passe doivent au moins avoir 6 caractères.</span>
                 </div>
                 <button type="submit" class="btn btn-primary w-100 mx-auto mb-3">Submit</button>
-                <a href="LogIn.html" style="text-decoration: none;"><input type="button" class="bg-primary text-light form-control"
-                    value="cliquez ici pour vous connecter"></a>
+
 
                 <p>
                     En créant un compte, vous acceptez les <a href="/">conditions d'utilisation et de vente</a> de belle
@@ -99,8 +98,9 @@
                 console.log(error.message);
             })
         window.alert("Compte créer avec succèes, Merci")
+        setTimeout("window.location.href = 'logIn.html'",5000);
     }
-    
+
     MainForm.addEventListener('submit', RegisterUser);
 </script>
 <!-- BOOTSATRAP LINK  -->
