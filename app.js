@@ -1,10 +1,10 @@
 // Variables
-let modal = document.querySelector(".modal");
-let modalTitle = document.querySelector(".modal-title");
-let panier = document.getElementById("cart");
-let modalBody = document.querySelector(".modal-body");
+// let modal = document.querySelector(".modal");
+// let modalTitle = document.querySelector(".modal-title");
+// let panier = document.getElementById("cart");
+// let modalBody = document.querySelector(".modal-body");
 //
-// Fonction AJOUT dans le Panier
+// function ajouter produit
 let container = document.querySelector(".pro");
 const tabProduct = [
   {
