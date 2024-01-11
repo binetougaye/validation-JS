@@ -4,7 +4,7 @@
 // let panier = document.getElementById("cart");
 // let modalBody = document.querySelector(".modal-body");
 //
-// Fonction AJOUT dans le Panier
+// Fonction AJOUT produit
 let container = document.querySelector(".pro");
 const menImage = [
   {
@@ -81,58 +81,21 @@ container.innerHTML += `<div class="">
        footer.innerHTML="";
 
     div.innerHTML +=`
-    <div class="container">
-    <div id="root"></div>
-   <div class="sidebar d-flex justify-content-around">
-    <img src="images/garcon1.jpg" alt="" class="PRE1">
-    <!-- <div class="head"><p>My Cart</p></div> -->
-    <div id="cartItem">Your cart is empty</div>
-    <div class="foot">
-        <h3>Total</h3>
-        <h2 id="total">$ 0.00</h2>
-    </div>
-   </div>
-</div>`
+//     <div class="container">
+//     <div id="root"></div>
+//    <div class="sidebar d-flex justify-content-around">
+//     <img src="images/garcon1.jpg" alt="" class="PRE1">
+//     <!-- <div class="head"><p>My Cart</p></div> -->
+//     <div id="cartItem">Your cart is empty</div>
+//     <div class="foot">
+//         <h3>Total</h3>
+//         <h2 id="total">$ 0.00</h2>
+//     </div>
+//    </div>
+// </div>`
     });
   }
 
-//   Fonction pour ajouter un produit au panier
-//   var cart=[];
-//   function addtocart(a){
-//       cart.push({...images[a]});
-//       displaycart();
-  
-//   }
-//   //  Fonction pour supprimer un élément du panier
-//   function delElement(a){
-//       cart.splice(a, 1);
-//       displaycart();
-  
-//   }
-//   // afficher le contenu du panier
-//   function displaycart(a){
-//       let j=0 , total= 0;
-//       document.getElementById("count").innerHTML=cart.length;
-//       if(cart.length==0){
-//       document.getElementById('cartItem').innerHTML='Your cart is empty'
-//       document.getElementById("total").innerHTML="$"+0+".00";
-//   }else{
-//       document.getElementById('cartItem').innerHTML=cart.map((item)=>{
-//           var {image  ,price}=item;
-//           total=total+price;
-//           document.getElementById("total").innerHTML="$"+total+".00";
-//           return(
-//               `|<div class='cart-item'>
-//               <div class='row-img'>
-//               <img class='rowimg'src=${image}>
-              
-//               </div>
-//               <p style='font-size:12px;'>${title}</p>
-//               <h2 style='font-size:15px;'>$ ${price}.00</h2>`+
-//               "<i class='fa-solid fa-trash' onclick='delElement("+(j++) +")'></i></div>"
-//           )
-//       }).join('')
-//   }
-//   }
+
  
 
