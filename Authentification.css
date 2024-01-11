@@ -1,0 +1,36 @@
+form {
+    border: 2px solid #9b9898;
+    border-radius: 50px 0 50px 0;
+    margin-bottom: 10px;
+    font-size: small;
+}
+
+.form-floating span {
+    font-size: 12px;
+    align-items: center;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.text-head {
+    margin: 10px 0;
+}
+
+legend{
+    font-size: 13px !important;
+    font-weight: bold !important;
+    text-align: left !important;
+}
+
+.accordion-collapse{
+    display: grid;
+    margin: 5px;
+}
+.fa-solid{
+    font-size: 10px;
+    margin-left: 5px;
+}

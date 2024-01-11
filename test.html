@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Authentification.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="greet"></h1>
+    <h1 id="msg"></h1>
+    <button type="button" id="signoutbutton">deconnexion</button>
+</body>
+
+
+<script>
+
+    // recuperation des infos sur le sessionStorage
+    let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"))
+    let UserInfo = JSON.parse(sessionStorage.getItem("user-info"))
+
+    let MsgHead = document.getElementById("msg")
+    let GreetHead = document.getElementById("greet")
+    let signoutBtn = document.getElementById("signoutbutton")
+
+    // function pour la deconnexion et redirection vers la page de connexion
+    let Signout = () => {
+        sessionStorage.removeItem("user-creds")
+        sessionStorage.removeItem("user-info")
+        window.location.href = 'logIn.html'
+    }
+
+    // function pour verifier les infos user dans le sessionStorage et afficher les infos sur le DOM  
+    let CheckCred = () => {
+        if (!sessionStorage.getItem("user-creds")) {
+            window.location.href = 'logIn.html'
+        } else {
+            MsgHead.innerText = ` Votre Email: ${UserCreds.email}`
+            GreetHead.innerHTML = `Bienvenu ${UserInfo.lastname + " " + UserInfo.firstname}!`
+        }
+    }
+
+    window.addEventListener('load', CheckCred);
+    signoutBtn.addEventListener('click', Signout)
+</script>
+
+</html>
