@@ -1,0 +1,70 @@
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 5px 0;
+}
+
+nav .logo {
+	width: 120px;
+	cursor: pointer;
+	font-size: 2.5rem;
+	font-style: oblique;
+	font-weight: bold;
+	text-decoration: none;
+	color: #94f7e6;
+}
+
+nav ul {
+	display: flex;
+	justify-content: flex-end;
+	flex: 1;
+	align-items: center;
+	padding-right: 40px;
+	text-align: right;
+	list-style-type: none;
+	
+}
+
+ul li {
+	margin-right: 10px;
+}
+
+ul li a {
+	position: relative;
+	padding: 10px 20px;
+	text-decoration: none;
+	color: #94f7e6;
+	font-style: oblique;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+button.btn {
+	padding: 10px 20px;
+	font-size: 1.2rem;
+	font-weight: bold;
+	font-style: italic;
+	margin-top: 0;
+	background-color: transparent;
+	color: #3e4846;
+	border: 1px solid transparent;
+	transition: border-color 0.3s ease;
+}
+table{
+    margin: 0 ;
+}
+button.hov{
+    color: #94f7e6;
+}
+#productList{
+	background: rgb(197, 125, 125);
+}
+.table{
+	background: red;
+}
+
+.img-thumbnail{
+	width: 100px;
+}
