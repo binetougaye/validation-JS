@@ -14,6 +14,10 @@ html {
     scroll-behavior: smooth;
 }
 
+.btnCart {
+    background-color: #ffc107;
+}
+
 .card {
     position: relative;
 }
@@ -225,6 +229,10 @@ a {
     transition: 0.3s;
 }
 
+.color {
+    background-color: aliceblue;
+}
+
 .card button:hover {
     background-color: #c0392b;
     color: #fff;
@@ -266,4 +274,7 @@ a {
         background-color: whitesmoke;
     }
 
+}
+.btnCart{
+    background-color: rgba(0, 0, 255, .2);
 }
