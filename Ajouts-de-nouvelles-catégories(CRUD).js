@@ -1,56 +1,38 @@
-const categories = ['Robes','Robes','Robes'];
-const products = [
-    { id: 1,
-      category: 'Robes',
-      name: 'Femmes'
-},
-{  id: 1,
-   category: 'Prêt du corps',
-   name: 'Hommes'
- 
-},
-];
-function initProductTable() {
+const categories = [];
+function AjoutTable() {
     const tableBody = document.getElementById('productTableBody');
     tableBody.innerHTML = '';
-
-    products.forEach(product => {
+    categories.forEach(category => {
         const row = tableBody.insertRow();
-        row.innerHTML = `<td>${product.id}</td>
-                         <td>${product.name}</td>
-                         <td>${product.category}</td>
-                         <td><button onclick="editProduct(${product.id})">Modifier</button>
-                             <button onclick="deleteProduct(${product.id})">Supprimer</button></td>`;
+        row.innerHTML = `<td>${category.id}</td>
+                         <td>${category.name}</td>
+                         <td><img src="image.jpg.jpg" alt="" width="50" height="50"></td>
+                            <td> 
+                            <button onclick="modifyCategory(${category.id})">Modifier</button>
+                            <button onclick="deleteCategory(${category.id})">Supprimer</button>
+                            </td>`;
     });
 }
-function initCategoryDropdown() {
-    const categoryDropdown = document.getElementById('productCategory');
-    categoryDropdown.innerHTML = '';
-
+function addcategories() {
+    const categoriesName = document.getElementById('productName').value;
+    const newId = categories.length + 1;
+    const newCategories = {
+        id: newId,
+        name: categoriesName,
+        action: '',  
+    };
+    categories.push(newCategories);
+    AjoutTable();
 }
-
-function openModal(modalId) {
-    const modal = document.getElementById(modalId);
-    modal.style.display = 'block';
+function modifyCategory(Id) {
+    const categoryModify = categories.find(category => category.id === Id);
+    const newName = prompt('Modify category name:', categoryModify.name);
+    if (newName !== null) {
+        categoryModify.name = newName;
+        AjoutTable();
+    }
 }
-function closeModal(modalId) {
-    const modal = document.getElementById(modalId);
-    modal.style.display = 'none';
-}
-
-function addProduct() {
-    const productName = document.getElementById('productName').value;
-    const productCategory = document.getElementById('productCategory').value;
-
-    const newProductId = products.length + 1;
-
-    const newProduct = { id: newProductId, name: productName, category: productCategory };
-    products.push(newProduct);
-
-    initProductTable();
-    closeModal('addProductModal');
-}
-function deleteProduct(productId) {
-    products.splice(products.findIndex(product => product.id === productId), 1);
-    initProductTable();
+function deleteCategory(Id) {
+    categories.splice(categories.findIndex(category => category.id === Id), 1);
+    AjoutTable();
 }
