@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
    <!-- Bootstrap CSS and Icon Link -->
+   <link rel="stylesheet" href="to-do.css">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
    <link rel="stylesheet" href="gestionProduitAdmin.css">
@@ -30,32 +33,34 @@
 </section>
 </div>
     <!-- Table  -->
-    <table class="table text-center ">
-      <thead class="thead-light">
-        <button class="btn btn-light bg-light " onclick='populateTableList()'> Voir Produits</button><br><br>
+  
 
-        <tr class="text-center">
-          <th class="col-">Models</th>
-          <th class="col-">Nom</th>
-          <th class="col-">Taille</th>
-          <th class="col-">Prix (CFA)</th>
-          <th class="col-">Actions</th>
-        </tr>
-      </thead>
-      <!-- Table body with the list of products -->
-      <tbody id="productList" class="text-light">
+  <h1>Admin Panel</h1>
+  <form id="crudForm">
+    <label for="itemName">Nom de l'élément :</label>
+    <input type="text" id="itemName" required>
+    <label for="itemImage">Image :</label>
+    <input type="file" id="itemImage" accept="image/*">
+    <label for="itemPrice">Prix :</label>
+    <input type="number" id="itemPrice" required>
+    <button type="button" onclick="addItem()">Ajouter</button>
+  </form>
 
-      </tbody>
-    </table>
- 
-  </div>
-  <!-- Footer -->
-  <footer>
-  </footer>
-    <!-- Bootstrap JS link -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Code javaScript -->
-  <script src="gestionProduitAdmin.js"></script>
+  <h2>Liste des articles:</h2>
+  <table class="table " id="itemTable">
+    <thead class="bg-dark">
+      <tr>
+        <th>Index</th>
+        <th>Nom </th>
+        <th>Model</th>
+        <th>Prix</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="itemList"></tbody>
+  </table>
+</div>
+<script src="gestionProduitAdmin.js"></script>
 </body>
  
 </html>

@@ -1,71 +1,68 @@
+let items = [];
 
-function Products(photos, nom, tail, prix ) {
-    this.photos = photos,
-    this.nom = nom,
-    this.tail = tail,
-    this.prix = prix
-    // this.action = action
-}
+function addItem() {
+  const itemNameInput = document.getElementById('itemName');
+  const itemImageInput = document.getElementById('itemImage');
+  const itemPriceInput = document.getElementById('itemPrice');
 
-const product1 = new Products('./images/tenu1.jpg','Jordan','M',20000);
-const product2 = new Products('./images/tenu2jpeg.jpeg','Paul','S',15000);
-const product3 = new Products('./images/tenue3.jpeg','Castel','L',10000);
-const product4 = new Products('./images/tenue4.jpeg','Hope','S',14000);
-const product5 = new Products('./images/tenu5.jpeg','Star','X',18000);
-const product6 = new Products('./images/tenu7.jpeg','Force','W',13500);
-const product7 = new Products('./images/tenu8.jpeg','Ken','M',24000);
-const product8 = new Products('./images/tenu9.jpg','Vost','L',34000);
-const product9 = new Products('./images/tenu10.jpeg','Best','X',25000);
-const product10 = new Products('./images/tenue3.jpeg','Cost','S',35000);
+  const itemName = itemNameInput.value.trim();
+  const itemImage = itemImageInput.files[0];
+  const itemPrice = itemPriceInput.value;
 
-let products = [];
-products.push(product1, product2, product3, product4, product5, product6, product7 ,product8,product9,product10);
- 
-function populateTableList() {
-    let listOfProducts = '';
-    
-    products.forEach((prod, index) => {
-        listOfProducts += `
-        <tr class="text-center">
-            <td><img src="${prod.photos}" class="img-fluid img-thumbnail w-10"></td>
-            <td>${prod.nom}</td>
-            <td>${prod.tail}</td>
-            <td>${prod.prix}</td>
-            
-            <td class="">
-                <button class="btn btn-secondary" onclick="editTask(${index}'edit')">Modifier</button>
-                <button class="btn btn-secondary" onclick="removeTask(${index} 'remove')">Supprimer</button>
-            </td>
-        </tr>
-        `;
+  if (itemName !== '' && itemImage && itemPrice !== '') {
+    // Ajouter un nouvel élément à la liste
+    items.push({
+      name: itemName,
+      image: itemImage,
+      price: itemPrice
     });
 
-    document.getElementById('productList').innerHTML = listOfProducts;
+    // Mettre à jour l'affichage
+    renderItems();
+
+    // Effacer les champs de saisie
+    itemNameInput.value = '';
+    itemImageInput.value = null;
+    itemPriceInput.value = '';
+  }
 }
 
-// 
+function editItem(index) {
+  const newItemName = prompt('Modifier le nom de l\'élément :', items[index].name);
 
-function editTask(index) {
-    // Logique pour ajouter le produit au panier en utilisant l'index
-    console.log('Ce produit est ajouté:', products[index]);
+  if (newItemName !== null) {
+    items[index].name = newItemName;
+    renderItems();
+  }
 }
 
-function removeTask(index) {
-    // Logique pour supprimer le produit en utilisant l'index
-    console.log('Ce produit est supprimé:', products[index]);
+function deleteItem(index) {
+  items.splice(index, 1);
+  renderItems();
 }
 
+function renderItems() {
+  const itemTable = document.getElementById('itemList');
+  itemTable.innerHTML = '';
 
+  items.forEach((item, index) => {
+    const row = itemTable.insertRow();
+    const cellIndex = row.insertCell(0);
+    const cellName = row.insertCell(1);
+    const cellImage = row.insertCell(2);
+    const cellPrice = row.insertCell(3);
+    const cellActions = row.insertCell(4);
 
-// Fonction générique pour gérer les actions sur une tâche (modifier ou supprimer)
+    cellIndex.textContent = index;
+    cellName.textContent = item.name;
+    cellImage.innerHTML = `<img src="${URL.createObjectURL(item.image)}" alt="Item Image" style="max-width: 50px; max-height: 50px;">`;
+    cellPrice.textContent = item.price;
+    cellActions.innerHTML = `
+      <button onclick="editItem(${index})"><i class="fas fa-edit "></i></button>
+      <button onclick="deleteItem(${index})"><i class="red fas fa-trash-alt #ff0000"></i></button>
+    `;
+  });
+}
 
-
-// ...
-
-// // Boutons dans votre code HTML
-// <button class="btn btn-secondary" onclick="manageTask(${index}, 'edit')">Modifier</button>
-// <button class="btn btn-secondary" onclick="manageTask(${index}, 'remove')">Supprimer</button>
-
-
-
-
+// Appel initial pour afficher les éléments existants
+renderItems();
