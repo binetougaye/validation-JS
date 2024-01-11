@@ -74,3 +74,10 @@ li{
 button{
   background-color: #fff;
 }
+
+
+/* TABLEAU UTILISATEURS */
+
+#dashboard>div:nth-child(2) {
+  margin-left: 1%;
+}
