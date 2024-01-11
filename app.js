@@ -4,6 +4,7 @@ let container = document.querySelector(".pro");
 let text = document.querySelector(".text");
 let header = document.querySelector(".bg");
 let panier = document.querySelector(".panier");
+let bag = document.getElementById("bag");
 const tabProduct = [
   {
     id: 1,
@@ -71,7 +72,6 @@ for (i = 0; i < tabProduct.length; i++) {
     buttons[i].addEventListener("click", function () {
       container.style.backgroundColor = "#303952";
       container.style.padding = "40px";
-      // urlComplet = "/ajout.html";
       console.log(test);
       header.innerHTML = "";
       text.innerHTML = "";
@@ -103,20 +103,27 @@ for (i = 0; i < tabProduct.length; i++) {
         </select>
         </div>
       </div>
-
-     
       <button class="w-100 mt-5 border-0 btnCart">Add to cart</button>
       </div>
      
       </div>
       </div>`;
 
+      // Ajout au panier
       let btnAdd = document.querySelector(".btnCart");
       let n = 1;
-
-      //
+      let p;
       btnAdd.addEventListener("click", function () {
-        panier.innerHTML = n++;
+        p = panier.innerHTML = n++;
+      });
+      panier.addEventListener("click", function () {
+        container.innerHTML = `<p class="text-white">Ton panier ${p} produit</p>
+          <p>${test.price}</p>
+        
+          `;
+        // let prix = test.price * p;
+        // console.log(prix);
+        //
       });
     });
   }
