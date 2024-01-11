@@ -96,7 +96,8 @@
                 var ref = doc (db,"UserAutList", credentials.user.uid); 
                 await setDoc(ref, {
                     firstname: FnameInp.value,
-                    lastname: LnameInp.value
+                    lastname: LnameInp.value,
+                    email: email.value
                 });
             })
             .catch((error) => {

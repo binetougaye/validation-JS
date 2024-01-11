@@ -95,7 +95,8 @@
                     if (docSnap.exists()) {
                         sessionStorage.setItem("user-info", JSON.stringify({
                             firstname: docSnap.data().firstname,
-                            lastname: docSnap.data().lastname
+                            lastname: docSnap.data().lastname,
+                            email: docSnap.data().email
                         }))
                         sessionStorage.setItem("user-creds", JSON.stringify(credentials.user));
                         window.location.href = 'test.html'
