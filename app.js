@@ -1,10 +1,18 @@
 // Variables
 // Fonction Voir produit et AJOUT dans le Panier
+console.log(window.location.href);
 let container = document.querySelector(".pro");
 let text = document.querySelector(".text");
 let header = document.querySelector(".bg");
 let panier = document.querySelector(".panier");
 let bag = document.getElementById("bag");
+let modalTitle = document.querySelector(".modal-title");
+let product = document.querySelector(".product");
+let prix = document.querySelector(".prix");
+let num = document.querySelector(".num");
+let Price = document.querySelector(".price");
+let total = document.querySelector(".total");
+let commande = document.querySelector(".btn");
 const tabProduct = [
   {
     id: 1,
@@ -70,12 +78,12 @@ for (i = 0; i < tabProduct.length; i++) {
     let test = tabProduct[i];
     let btn = buttons[i];
     buttons[i].addEventListener("click", function () {
-      container.style.backgroundColor = "#303952";
+      window.location.href = "http://127.0.0.1:5500/ajout.html";
       container.style.padding = "40px";
       console.log(test);
       header.innerHTML = "";
       text.innerHTML = "";
-      container.innerHTML = `<div class="row">
+      container.innerHTML = `<div class="row ">
       <div class="col-lg-6">
       <img src="images/${test.product}" class="me-5 w-100">
       </div>
@@ -115,15 +123,64 @@ for (i = 0; i < tabProduct.length; i++) {
       let p;
       btnAdd.addEventListener("click", function () {
         p = panier.innerHTML = n++;
+        modalTitle.innerHTML = `<h6 class="text-dark">Ton panier ${p} produit</h6>`;
+        product.innerHTML = `<h6>${test.title}</h6>`;
+        prix.innerHTML = `<p>${test.price} $</p>`;
+        num.innerHTML = `<p>${p}</p> `;
+        let totalAchat = test.price * p;
+        total.innerHTML = `<p>${totalAchat} $</p> `;
       });
-      panier.addEventListener("click", function () {
-        container.innerHTML = `<p class="text-white">Ton panier ${p} produit</p>
-          <p>${test.price}</p>
-        
-          `;
-        // let prix = test.price * p;
-        // console.log(prix);
-        //
+      // Finaliser la commande
+      commande.addEventListener("click", function () {
+        container.innerHTML = `
+        <div class="row  mt-5 mb-5 justify-content-center align-items-center">
+        <!-- Formulaire -->
+        <div class=" bg-white infos shadow-lg  rounded-2 p-4">
+            <!--  -->
+            <h1>Tes coordonnées</h1>
+            <div class="row">
+                <form>
+                    <div class="col">
+                        <label class="fw-bold mb-2">Prenom</label>
+                        <input type="text" required="required" class="rounded w-100 p-1" id="prenom" required>
+                    </div>
+                    <div class="col">
+                        <label for="" class="fw-bold  mb-2">Nom</label>
+                        <input type="text" required="required" class="rounded  w-100  p-1" id="nom">
+                    </div>
+            </div>
+            <!--  -->
+            <div class="row mt-3">
+
+                <div class="col">
+                    <label for="" class="fw-bold  mb-2">Somme</label>
+                    <input type="text" required="required" class="rounded  w-100  p-1" id="somme">
+                </div>
+              
+
+
+            </div>
+            <!--  -->
+            <div class="row">
+            <div class="col">
+               
+            <label for="" class="fw-bold  mb-2 mt-3 ">Payment Method</label>
+            <select name="" id="select" required class="w-100 p-1 rounded" class="rounded">
+                <option value="depot">Carte de crédit</option>
+                <option value="retrait">Payement à la livraison</option>
+      
+        </div>
+        <div>
+            <button id="submit" class=" w-100 border-0 mt-4 p-2 rounded shadow">Validez</button>
+        </div>
+            </div>
+           
+           
+            </form>
+            
+        </div>
+    </div>
+        `;
       });
     });
   }
