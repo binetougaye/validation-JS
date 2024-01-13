@@ -86,3 +86,8 @@ button{
   margin-top: 2%;
   font-size: 45px;
 }
+
+i{
+  cursor: pointer;
+}
+

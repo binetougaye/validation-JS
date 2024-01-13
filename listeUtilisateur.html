@@ -73,9 +73,19 @@
                         trow.appendChild(td5);
 
 
-                        td5.innerHTML = `<i class="bi bi-eye"></i> <i class="bi bi-trash3" onclick="deleteUser(this)"></i>`
+                        td5.innerHTML = `<i class="bi bi-eye"></i> <i class="bi bi-trash3" id="test" "></i>`
 
                         tbody.appendChild(trow);
+
+                        // Ajoute un écouteur d'événements sur le tableau lui-même
+                        tbody.addEventListener('click', function (event) {
+                            // Vérifie si l'élément cliqué est une icône de corbeille
+                            if (event.target.classList.contains('bi-trash3')) {
+                                // Supprime la ligne parente de l'icône de corbeille
+                                let rowToRemove = event.target.closest('tr');
+                                rowToRemove.remove();
+                            }
+                        });
 
                     }
 
@@ -88,6 +98,7 @@
                         });
                     }
 
+                    
 
                     // Firestore
 
@@ -137,8 +148,6 @@
                             });
                     }
 
-
-
                     // Recuperation des données en temps reel
                     // function getAllDataRealTime() {
                     //     const dbRef = ref(db, 'UserAutList');
@@ -154,6 +163,9 @@
                     //     })
                     // }
 
+
+                    
+
                     window.onload = getAllDataOnce;
 
                     // Regle firestore
@@ -161,25 +173,20 @@
 
 
 
-                    // // Recuperation du nombre d'utilisateurs
-                    // let tableau = document.getElementById('tableau').rows.lenght
-                    // // let test = tbody.rows.length;
-                    // console.log(tableau);
+
+                    // // Suppression d'un utilisateur
+                    // let supp = document.getElementById('test')
+
+                    // supp.addEventListener('click', function () {
+                    
+                    //     let toDel = trow.innerHTML;
+                    //     toDel.innerHTML = '';
+                    // })
+
+                    
 
 
-
-                    // Suppression d'un utilisateur
-
-                    function deleteUser(i) {
-                        let ligneASupprimer = i.closest('tr');
-
-                        if (ligneASupprimer) {
-                            ligneASupprimer.remove();
-                            // localStorage.removeItem('data');
-                        }
-
-                            // localStorage.clear('data')
-                    }
+                        
 
                 </script>
             
