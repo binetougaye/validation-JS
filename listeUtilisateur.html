@@ -38,6 +38,7 @@
             </div>
             <div class="mt-5">
                 <h1 class="text-center">Liste des utilisateurs</h1>
+                <input type="text" id="searchbar" placeholder="Recherchez un prenom" onkeyup="filter()">
                 <table class="table mt-3" id="tableau">
                     <thead>
                         <tr>
@@ -55,6 +56,28 @@
     </div>
 
     <script type="module" src="adminDashboard.js"></script>
+    <script>
+
+        // Barre de Recherche
+
+        function filter() {
+                let filtre = document.getElementById('searchbar').value.toUpperCase()
+                let ligne = document.getElementsByTagName('tr')
+
+                for (let i = 0; i < ligne.length; i++) {
+                    cellule = ligne[i].getElementsByTagName('td')[1];
+                    if (cellule) {
+                        let texte = cellule.innerText;
+                        if (texte.toUpperCase().indexOf(filtre) > -1) {
+                            ligne[i].style.display = '';
+                        }
+                        else {
+                            ligne[i].style.display = 'none';
+                        }
+                    }
+                }
+            }
+    </script>
 
                 <!-- <script type="module">
 
