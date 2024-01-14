@@ -140,7 +140,21 @@ img {
     width: 300px;
 }
 
+/* LOGIC */
+.bag {
+    position: relative;
+}
 
+.panier {
+    position: absolute;
+    top: 0px;
+    right: -5px;
+    background-color: #e52c2b;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    font-size: 10px;
+}
 
 /* FOOTER */
 footer {
