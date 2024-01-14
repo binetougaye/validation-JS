@@ -13,45 +13,46 @@ let num = document.querySelector(".num");
 let Price = document.querySelector(".price");
 let total = document.querySelector(".total");
 let commande = document.querySelector(".btn");
-const tabProduct = [
-  {
-    id: 1,
-    product: "roberouge.jpg",
-    title: "Robe de soirée",
-    price: 124.99,
-  },
-  {
-    id: 2,
-    product: "redDress.jpg",
-    title: "Robe de soirée",
-    price: 299.99,
-  },
-  {
-    id: 3,
-    product: "yellowDress.jpg",
-    title: "Robe de soirée",
-    price: 179.99,
-  },
-  {
-    id: 4,
-    product: "soie.jpg",
-    title: "Robe de soirée",
-    price: 169.99,
-  },
-  {
-    id: 5,
-    product: "dress.jpg",
-    title: "Robe de soirée",
-    price: 180.99,
-  },
-  {
-    id: 6,
-    product: "robemarron.jpg",
-    title: "Robe de soirée",
-    price: 110.99,
-  },
-];
 
+const tabProduct = [
+    {
+      id: 1,
+      product: "im1.jpg",
+      title: "Sandale",
+      price: 3,
+    },
+    {
+      id: 2,
+      product: "im2.jpg",
+      title: "Sandale",
+      price: 89.99,
+    },
+    {
+      id: 3,
+      product: "im3.jpg",
+      title: "Sandale",
+      price: 100.99,
+    },
+    {
+      id: 4,
+      product: "im4.jpg",
+      title: "Sandale",
+      price: 89.99,
+    },
+    {
+      id: 5,
+      product: "im5.jpg",
+      title: "Sandale",
+      price: 100.99,
+    },
+    {
+      id: 6,
+      product: "im6.jpg",
+      title: "Sandale",
+      price: 80.99,
+    },
+  ];
+  
 container.innerHTML = "";
 let getProduct = tabProduct.map(
   (p) =>
