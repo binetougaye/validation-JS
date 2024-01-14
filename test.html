@@ -1,4 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajout de nouveaux produits</title>
+  <style>
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
 
+    .card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 100%;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .card-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    button {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div id="product-list" class="card-container"></div>
+
+<form id="product-form">
+  <label for="name">Nom du produit:</label>
+  <input type="text" id="name" required>
+
+  <label for="description">Description:</label>
+  <textarea id="description" required></textarea>
+
+  <label for="price">Prix:</label>
+  <input type="number" id="price" step="0.01" required>
+
+  <label for="photo">Sélectionner une image:</label>
+  <input type="file" id="photo" accept="image/*" required>
+
+  <button type="button" onclick="addProduct()">Ajouter</button>
+</form>
+
+<script>
 var products = [
   {
     name: "Produit 1",
@@ -78,3 +133,7 @@ function deleteProduct(index) {
 }
 
 displayProducts();
+</script>
+
+</body>
+</html>

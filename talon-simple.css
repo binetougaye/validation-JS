@@ -5,12 +5,11 @@
 }
 .banner{
     width: 100%;
-    /* height: auto; */
     min-height: 650px;
     background-image: url('./images/Frame-15-1.png');
     background-repeat: no-repeat;
     background-position:right;
-    background-size:cover;
+    background-size:contain;
     background-attachment: fixed;
     padding: 350px 0 100px 0;
 }
@@ -32,17 +31,6 @@ h1{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.main-btn{
-    display: inline-block;
-    transition: all .4s ease-in-out;
-    padding: 7px 25px;
-    border-radius: 50px;
-    background-color:black;
-    color: white;
-    font-weight: 700;
-    font-size: 12px;
-    text-decoration: none;
-}
 .main-btn:hover{
     background-color: rgb(37, 6, 37);
     color:white;
@@ -59,6 +47,36 @@ p{
     font-size: 13px;
 }
 
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
 
+.card {
+  border:none;
+  padding: 10px;
+  width: 100%;
+}
+
+img {
+  width:300px;
+  height:100px;
+}
+ .main-btn {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  color: white;
+  cursor: pointer;
+  width: 300px;
+  background-image: none;
+  border-radius: 50px;
+  background-color:black;
+}
 
 

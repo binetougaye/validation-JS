@@ -22,74 +22,71 @@
   </section>
   <!--  -->
   <section class="main">
-    <div class="row">
-      <div class="col-sm-12 col-md-4 col-lg-4">
-        <div class="ver text-center mb-3">
-          <img src="./images/2317010009_6_1_1-550x550.jpg" class="img-fluid " alt=""><br><br>
-          <p>Talon long simple <br>
-              10.000 CFA 
-           </p>
-              <a href="#" class="main-btn">Ajouter au panier</a>
-        </div>
-      </div>
-
-      <div class="col-sm-12  col-md-4 col-lg-4">
-        <div class="ver text-center ">
-          <img src="./images/mules-talon-fin-beige-vernis-pleaser-600x600.jpg" class="img-fluid " alt=""><br><br>
-          <p>Talon long 5<br>
-            10.000 CFA 
-         </p>
-            <a href="#" class="main-btn">Ajouter au panier</a>
-        </div>
-      </div>
-
-      <div class="col-sm-12  col-md-4 col-lg-4">
-        <div class="ver text-center mb-3">
-          <img src="./images/noo-600x600.jpg" class="img-fluid " alt=""><br><br>
-          <p>Talon long aigu <br>
-            10.000 CFA
-         </p>
-            <a href="#" class="main-btn">Ajouter au panier</a>
-
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-sm-12 col-md-4 col-lg-4">
-        <div class="ver text-center mb-3">
-          <img src="./images/2317010009_6_1_1-2-600x600.jpg" class="img-fluid " alt=""><br><br>
-          <p>Talon long bleu<br>
-              10.000 CFA 
-           </p>
-              <a href="#" class="main-btn">Ajouter au panier</a>
-        </div>
-      </div>
-
-      <div class="col-sm-12  col-md-4  col-lg-4">
-        <div class="ver text-center ">
-          <img src="./images/MAKETo-600x600.jpg" class="img-fluid " alt=""><br><br>
-          <p>Talon long simple orange <br>
-            10.000 CFA 
-         </p>
-            <a href="#" class="main-btn">Ajouter au panier</a>
-        </div>
-      </div>
-
-      <div class="col-sm-12  col-md-4  col-lg-4">
-        <div class="ver text-center mb-3">
-          <img src="./images/MAKETl-600x600.jpg" class="img-fluid " alt=""><br><br>
-          <p>Talon long simple nude <br>
-            10.000 CFA
-         </p>
-            <a href="#" class="main-btn">Ajouter au panier</a>
-
-        </div>
-      </div>
-    </div>
-
+    <div id="product-list" class="card-container text-center"></div>
   </section>
+  <script>
+    var products = [
+      {
+        description: "Talon long simple.",
+        price: 10000,
+        photo: "./images/2317010009_6_1_1-550x550.jpg"
+      },
+
+      {
+      
+        description: " Talon long 9.",
+        price: 10000,
+        photo: "./images/mules-talon-fin-beige-vernis-pleaser-600x600.jpg"
+      },
+
+      {
+     
+        description: " Talon long 5.",
+        price: 10000,
+        photo: "./images/noo-600x600.jpg"
+      },
+
+     
+      {
+        description: "Talon long 5.",
+        price: 10000,
+        photo: "./images/2317010009_6_1_1-2-600x600.jpg"
+      },
+
+      {
+        description: "Talon long 5.",
+        price: 10000,
+        photo: "./images/MAKETo-600x600.jpg"
+      },
+
+      {
+        description: "Talon long 5.",
+        price: 10000,
+        photo: "./images/MAKETl-600x600.jpg"
+      },
+      // Ajoutez d'autres produits
+    ];
+
+    function displayProducts() {
+      var productListDiv = document.getElementById("product-list");
+      productListDiv.innerHTML = "";
+
+      products.forEach(function(product) {
+        var productDiv = document.createElement("div");
+        productDiv.className = "card";
+        productDiv.innerHTML = `
+          <img src="${product.photo}"class="img-fluid" alt="${product.name}">
+          <p>${product.description}</p>
+          <p>Prix: ${product.price} CFA</p>
+          <a href="#" class="main-btn ">Ajouter au panier</a>
+        `;
+        productListDiv.appendChild(productDiv);
+      });
+    }
+
+    displayProducts();
+  </script>
+
     
 </body>
-
-
 </html>

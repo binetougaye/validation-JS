@@ -52,19 +52,41 @@ button.btn {
 	border: 1px solid transparent;
 	transition: border-color 0.3s ease;
 }
-table{
-    margin: 0 ;
-}
-button.hov{
-    color: #94f7e6;
-}
-#productList{
-	background: rgb(197, 125, 125);
-}
-.table{
-	background: red;
-}
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 40px;
+    
+    }
 
-.img-thumbnail{
-	width: 100px;
-}
+    .card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    input{
+        width: 150PX;
+        height: 20px;
+        margin: 20px;
+    }
+    textarea{
+       position: relative;
+        top: 20px;
+    }
+	.card-buttons {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 10px;
+	  }
+  
+	  button {
+		cursor: pointer;
+	  }
+    
+ 

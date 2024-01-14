@@ -36,30 +36,24 @@
   
 
   <h1>Admin Panel</h1>
-  <form id="crudForm">
-    <label for="itemName">Nom de l'élément :</label>
-    <input type="text" id="itemName" required>
-    <label for="itemImage">Image :</label>
-    <input type="file" id="itemImage" accept="image/*">
-    <label for="itemPrice">Prix :</label>
-    <input type="number" id="itemPrice" required>
-    <button type="button" onclick="addItem()">Ajouter</button>
-  </form>
 
-  <h2>Liste des articles:</h2>
-  <table class="table " id="itemTable">
-    <thead class="bg-dark">
-      <tr>
-        <th>Index</th>
-        <th>Nom </th>
-        <th>Model</th>
-        <th>Prix</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody id="itemList"></tbody>
-  </table>
-</div>
+  <div id="product-list" class="card-container"></div>
+
+  <form id="product-form">
+    <label for="name">Nom du produit:</label>
+    <input type="text" id="name" required>
+  
+    <label for="description">Description:</label>
+    <textarea id="description" required></textarea>
+  
+    <label for="price">Prix:</label>
+    <input type="number" id="price" step="0.01" required>
+  
+    <label for="photo">Sélectionner une image:</label>
+    <input type="file" id="photo" accept="image/*" required>
+  
+    <button type="button" onclick="addProduct()">Ajouter</button>
+  </form>
 <script src="gestionProduitAdmin.js"></script>
 </body>
  
