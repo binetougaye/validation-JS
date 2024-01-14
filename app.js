@@ -6,6 +6,7 @@ let categorieFemme = document.querySelector(".femme");
 let sacHomme = document.querySelector(".homme");
 let hiver = document.querySelector(".hiver");
 let panier = document.querySelector(".panier");
+let span = document.querySelector("span");
 const tabProduct = [
   {
     id: 1,
@@ -25,7 +26,6 @@ const tabProduct = [
   },
 ];
 
-container.innerHTML = "";
 let getProduct = tabProduct.map(
   (p) =>
     (container.innerHTML += `
@@ -198,7 +198,7 @@ let getBS = tabBestSellers.map((b) => {
     <p class="text-secondary">${b.title}</p>
     <p>${b.title2}</p>
     <p>${b.prix} FCFA</p>
-    <button class="mt-2 border-0 p-2 shadow btn">Ajouter au panier</button>
+    <button class="mt-2 border-0 p-2 shadow button">Ajouter au panier</button>
   </div>
   `;
 });
@@ -259,13 +259,14 @@ let getOthers = tabOthers.map((o) => {
 <p class="text-secondary">${o.title}</p>
 <p>${o.title2}</p>
 <p>${o.prix} FCFA</p>
-<button class="mt-2 border-0 p-2 shadow btn">Ajouter au panier</button>
+<button class="mt-2 border-0 p-2 shadow btnOthers">Ajouter au panier</button>
 
 </div>
   `;
 });
 // LOGIC EVENTAIL
-let buttons = document.querySelectorAll(".button");
+let buttons = document.querySelectorAll(".btn");
+let p = 0;
 console.log(buttons);
 for (i = 0; i < tabEventail.length; i++) {
   for (i = 0; i < buttons.length; i++) {
@@ -273,20 +274,38 @@ for (i = 0; i < tabEventail.length; i++) {
     let btn = buttons[i];
     buttons[i].addEventListener("click", function () {
       console.log(test);
-
+      let incr = p++;
+      panier.innerHTML = incr;
       // Ajout au panier
     });
     // Finaliser la commande
   }
 }
 // LOGIC BESTSELLERS
+let btnBestSellers = document.querySelectorAll(".button");
 for (i = 0; i < tabBestSellers.length; i++) {
-  for (i = 0; i < buttons.length; i++) {
+  for (i = 0; i < btnBestSellers.length; i++) {
     let test = tabBestSellers[i];
-    let btn = buttons[i];
-    buttons[i].addEventListener("click", function () {
+    let btn = btnBestSellers[i];
+    btnBestSellers[i].addEventListener("click", function () {
       console.log(test);
-
+      let incr = p++;
+      panier.innerHTML = incr;
+      // Ajout au panier
+    });
+    // Finaliser la commande
+  }
+}
+// LOGIC AUTRES PRODUITS
+let othersProducts = document.querySelectorAll(".btnOthers");
+for (i = 0; i < tabOthers.length; i++) {
+  for (i = 0; i < othersProducts.length; i++) {
+    let test = tabOthers[i];
+    let btn = othersProducts[i];
+    othersProducts[i].addEventListener("click", function () {
+      console.log(test);
+      let incr = p++;
+      panier.innerHTML = incr;
       // Ajout au panier
     });
     // Finaliser la commande
