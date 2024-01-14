@@ -10,7 +10,7 @@
     background-image: url('./images/Frame-15-1.png');
     background-repeat: no-repeat;
     background-position:right;
-    background-size:bottom;
+    background-size:cover;
     background-attachment: fixed;
     padding: 350px 0 100px 0;
 }
