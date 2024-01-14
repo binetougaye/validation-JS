@@ -4,47 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-Dashboard</title>
+
+    <!-- Bootstrap CSS and Icon Link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS Link -->
     <link rel="stylesheet" href="adminDashboard.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Admin dashboard</title>
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <!-- ==========================SIDEBAR SECTION=============================================== -->
-            <div class="col-3 side-bar p-0">
-                <div class="home-image col-2 pb-5">
-                    <div class="d-flex text-center">
-                        <h1 class="text-center ms-2">Belle Gueule</h1>
-                    </div>
-                    <div class="home-text text-center">
-                        <h6 id="greet" class="text-left d-flex fs-5"></h6>
-                        <h6 id="msg" class="text-left d-flex fs-5"></h6>
-                        <p><span>Admin</span></p>
-                    </div>
-                </div>
-                <div class="list-group text-start w-75" id="list-tab" role="tablist">
-                    <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list"
-                        href="#list-home" role="tab" aria-controls="list-home">
-                        Acceuil
-                    </a>
-                    <a class="list-group-item list-group-item-action" id="list-categories-list" data-bs-toggle="list"
-                        href="#list-categories" role="tab" aria-controls="list-categories">
-                        Ajout Categories
-                    </a>
-                    <a class="list-group-item list-group-item-action" id="list-articles-list" data-bs-toggle="list"
-                        href="#list-articles" role="tab" aria-controls="list-articles">
-                        Ajout Articles
-                    </a>
-                    <a class="list-group-item list-group-item-action" id="list-clients-list" data-bs-toggle="list"
-                        href="#list-clients" role="tab" aria-controls="list-clients">
-                        Liste Clients
-                    </a>
-                </div>
-                <button type="button" class="btn" id="signoutbutton">Logout</button>
+    <div class="container-fluid d-flex">
+        <section id="sidebar">
+            <h1>Belle <br> Gueule</h1>
+            <ul class="">
+                <a href="adminDashboard.html"><i class="bi bi-house-fill"></i>Accueil</a>
+                <a href="listeUtilisateur.html"><i class="bi bi-person-fill"></i>Liste des Utilisateurs</a>
+                <a href="product.html"><i class="bi bi-bag-fill"></i>Ajout des Articles</a>
+                <a href="#"><i class="bi bi-tags-fill"></i>Ajout des Catégories</a>
+            </ul>
+            <button>Sign Out</button>
+        </section>
+        <section id="dashboard">
+            <div class="row d-flex justify-content-end w-100 profile py-2">
+                <img src="images/images.jpg" alt="avatar">
+                <h6>Admin</h6>
             </div>
             <!-- ==========================FIN SIDEBAR SECTION=========================================== -->
 
@@ -111,79 +96,7 @@
 
                     <!-- +++++++++++++++++++++++++++AJOUT ARTICLES SECTION++++++++++++++++++++++++++++++++++++++  -->
                     
-                   <!--  <div class="tab-pane fade ms-5" id="list-articles" role="tabpanel"
-                        aria-labelledby="list-articles-list">
-                        <div class="container">
-                            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link active btn btn-light bg-light mt-2 mb-2"
-                                        onclick='populateTableList()' id="pills-showall-tab" data-bs-toggle="pill"
-                                        data-bs-target="#pills-showall" type="button" role="tab"
-                                        aria-controls="pills-showall" aria-selected="true">Show All</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link btn btn-light bg-light mt-2 mb-2"
-                                        onclick="populateTableList()" id="pills-homme-tab" data-bs-toggle="pill"
-                                        data-bs-target="#pills-homme" type="button" role="tab"
-                                        aria-controls="pills-homme" aria-selected="false">Homme</button>
-                                </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link btn btn-light bg-light mt-2 mb-2" id="pills-femme-tab"
-                                        data-bs-toggle="pill" data-bs-target="#pills-femme" type="button" role="tab"
-                                        aria-controls="pills-femme" aria-selected="false">Femme</button>
-                                </li>
-                            </ul>
-                            <div class="tab-content" id="pills-tabContent">
-                                <div class="tab-pane fade show active" id="pills-showall" role="tabpanel"
-                                    aria-labelledby="pills-showall-tab" tabindex="0"></div>
-                                <div class="tab-pane fade" id="pills-homme" role="tabpanel"
-                                    aria-labelledby="pills-homme-tab" tabindex="1"></div>
-                                <div class="tab-pane fade" id="pills-femme" role="tabpanel"
-                                    aria-labelledby="pills-femme-tab" tabindex="2"></div>
-                            </div>
-                            <!--++++++++++++++++++++++++++ Formulaire Ajout article ++++++++++++++++++ -->
-                            <!-- <div class="container">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <form id="productForm1" class="mx-auto">
-                                            <div class="form-group mb-0">
-                                                <label for="productName">Name:</label>
-                                                <input type="text" class="form-control" id="productName" required>
-                                            </div>
-                                        </form>
-                                    </div>
-                            
-                                    <div class="col-md-6">
-                                        <form id="productForm2" class="mx-auto">
-                                            <div class="form-group mb-0">
-                                                <label for="productDescription">Description:</label>
-                                                <textarea class="form-control" id="productDescription" required></textarea>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <form id="productForm3" class="mx-auto">
-                                            <div class="form-group mb-0">
-                                                <label for="productPrice">Price:</label>
-                                                <input type="number" class="form-control" id="productPrice" required>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <form id="productForm4" class="mx-auto">
-                                            <div class="form-group mb-0">
-                                                <label for="productImage">Image:</label>
-                                                <input type="file" class="form-control-file" id="productImage" accept="image/*">
-                                            </div>
-                                            <button type="button" class="btn btn-primary mt-4" onclick="addProduct()">Add Product</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div> -->
-                            
+                 
                             
 <br><br>
                             <!-- ++++++++++++++++++++++++++ Table ++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
@@ -252,20 +165,16 @@
                     <!-- +++++++++++++++++++++++++++FIN AJOUT CLIENTS SECTION++++++++++++++++++++++++++++++++++++ -->
                 </div>
             </div>
-            <!-- ==========================FIN TABPAN SECTION============================================ -->
-        </div>
+        </section>
     </div>
 
+
+    <!-- Bootstrap JS link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script type="module" src="adminDashboard.js"></script>
+
+
 </body>
-
-
-<!-- boostrap link -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 </html>
