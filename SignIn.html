@@ -12,57 +12,62 @@
 <body>
     <!-- ===============================FORMILAIRE D'INSCRIPTION================================= -->
 
-    <div class="container">
-        <div class="row col-md-4 mx-auto mt-3">
-            <img src="Logo.png" alt="">
-            <form action="" id="MainForm">
-                <div class="text-head">
-                    <h3 class="mb-3">Créer un compte</h3>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="fnameInp" placeholder=".........">
-                    <label for="fnameInp">Your Firstname</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="lnameInp" placeholder=".........">
-                    <label for="lnameInp">Your Lastname</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="email" placeholder=".........">
-                    <label for="email">Your Email address</label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="password" placeholder="Password">
-                    <label for="password">Your Password</label>
-                    <span> Les mots de passe doivent au moins avoir 6 caractères.</span>
-                </div>
-                <button type="submit" class="btn btn-primary w-100 mx-auto mb-3">Continuer</button>
-
-
-                <p>
-                    En créant un compte, vous acceptez les <a href="/">conditions d'utilisation et de vente</a> de belle
-                    gueule.
-                    Consultez notre <a href="/">déclaration de confidentialité</a>, <a href="/">notre politique relative
-                        aux cookies</a>
-                    ainsi que notre <a href="/">politique relative aux publicités ciblées par centres d’intérêts</a>.
-                </p>
-                <hr>
-                <p>
-                    Vous possédez déjà un compte ? <a href="LogIn.html">Identifiez-vous<i
-                            class="fa-solid fa-chevron-right"></i></a>
-                    <br>
-                    Vous achetez pour votre entreprise ? <a href="">Créez un compte professionnel gratuit<i
-                            class="fa-solid fa-chevron-right"></i></a>
-                </p>
+    <div class="container" id="container">
+        <div class="form-container sign-in">
+            <form action="" id="loginForm">
+                <h1>Sign In</h1>
+            <!-- <img src="Logo.png" alt=""> -->
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-google-plus-g"></i></a>
+                  <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+                  <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+              </div>
+                    <input type="email" class="form-control" id="email2" placeholder="Your email adress">
+                    <input type="password" class="form-control" id="password2" placeholder="Your password"> 
+                    <a href="ForgetPassword.html">Forget You Password?</a>
+                <button type="submit">Continuer</button>
             </form>
+        </div>
+        <div class="form-container sign-up">
+            <form action="" id="registerForm">
+                <h1 class="mb-3">Create Account</h1>
+                <!-- <img src="Logo.png" alt=""> -->
+                <div class="social-icons">
+                  <a href="#"><i class="fa-brands fa-google-plus-g"></i></a>
+                  <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+                  <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+              </div>
+                    <input type="text" class="form-control" id="fnameInp" placeholder="Enter Your fisrtname">
+                    <input type="text" class="form-control" id="lnameInp" placeholder="Enter Your lastname">
+                    <input type="email" class="form-control" id="email" placeholder="Enter Your email adress">
+                    <input type="password" class="form-control" id="password" placeholder="Create your password">
+
+                <button type="submit">Continuer</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal detail to use all of site features</p>
+                    <button class="hidden" id="register">Sin Up</button>
+                </div>
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal detail to use all of site features</p>
+                    <button class="hidden" id="login">Sin In</button>
+                </div>
+            </div>
         </div>
     </div>
 </body>
 <script type="module">
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+    import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 
     const firebaseConfig = {
@@ -85,10 +90,44 @@
     let LnameInp = document.getElementById("lnameInp")
     let Email = document.getElementById("email")
     let Password = document.getElementById("password")
-    let MainForm = document.getElementById("MainForm")
+    let registerForm = document.getElementById("registerForm")
+    let loginForm = document.getElementById("loginForm")
+    let Email2 = document.getElementById("email2")
+    let Password2 = document.getElementById("password2")
+    let forgetpassword = document.getElementById("forgetpassword")
 
-    // function pour enregistrer les nouveaux admins
-    let RegisterUser = evt => {
+         // function pour la connexion 
+
+         let signInUser = evt => {
+            evt.preventDefault();
+            signInWithEmailAndPassword(auth, Email2.value=Email.value,Password2.value=Password.value)
+                .then(async (credentials) => {
+                    var ref = doc(db,"UserAutList", credentials.user.uid);
+                    const docSnap = await getDoc(ref);
+
+                    if (docSnap.exists()) {
+                        sessionStorage.setItem("user-info", JSON.stringify({
+                            firstname: docSnap.data().firstname,
+                            lastname: docSnap.data().lastname,
+                            email: docSnap.data().email
+                        }))
+                        sessionStorage.setItem("user-creds", JSON.stringify(credentials.user));
+                        window.location.href = 'test.html'
+                    }
+                })
+                
+            .catch ((error) => {
+                alert(error.message);
+                console.log(error.code);
+                console.log(error.message);
+            })
+        }
+        
+        loginForm.addEventListener('submit', signInUser);
+
+        // function pour la création
+
+        let RegisterUser = evt => {
         evt.preventDefault();
 
         createUserWithEmailAndPassword(auth, Email.value, Password.value)
@@ -105,13 +144,21 @@
                 console.log(error.code);
                 console.log(error.message);
             })
-            
-        window.alert("Compte créer avec succèes, Merci")
-        setTimeout("window.location.href = 'logIn.html'", 5000);
-    }
 
-    MainForm.addEventListener('submit', RegisterUser);
+            if (registerForm=true) {
+            window.alert("Compte créer avec succèes, Merci")
+            setTimeout("window.location.href = 'SignIn.html'", 5000)
+            }else{
+                
+            window.alert("Compte non créer")
+            }
+          
+        }
+
+        registerForm.addEventListener('submit', RegisterUser);
+
 </script>
+<script src="app.js"></script>
 <!-- BOOTSATRAP LINK  -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">

@@ -35,7 +35,7 @@
     // function pour verifier les infos user dans le sessionStorage et afficher les infos sur le DOM  
     let CheckCred = () => {
         if (!sessionStorage.getItem("user-creds")) {
-            window.location.href = 'logIn.html'
+            window.location.href = 'SignIn.html'
         } else {
             MsgHead.innerText = ` Votre Email: ${UserCreds.email}`
             GreetHead.innerHTML = `Bienvenu ${UserInfo.lastname + " " + UserInfo.firstname}!`
