@@ -7,6 +7,7 @@ body{
 /*-------------------- SIDEBAR --------------------*/
 
 .container-fluid{
+  /* display: flex; */
   padding: 0;
 }
 
@@ -120,6 +121,7 @@ button{
 
 .profile{
   background-color: #2f323e;
+  justify-content: end;
   /* margin-left: 1%; */
 }
 
@@ -157,4 +159,30 @@ i{
 
 #searchbar{
   margin-left: 1%;
+}
+
+@media screen and (max-width: 768px) {
+  .container-fluid {
+    flex-direction: column;
+    padding: 0;
+    }
+
+
+  #sidebar{
+    width: 100%;
+    background-color: #fff;
+    z-index: 1;
+  }  
+
+  #dashboard{
+    width: 100%;
+  }
+
+
+  .profile{
+    position: absolute;
+    top: 80px;
+    z-index: 2;
+    justify-content: start;
+  }
 }
