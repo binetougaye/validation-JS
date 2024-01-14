@@ -45,8 +45,7 @@
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse"
                             data-bs-parent="#accordionFlushExample">
-                            <a id="forgetpassword">Mot de passe oublié ?<i
-                                    class="fa-solid fa-chevron-right"></i></a>
+                            <a id="forgetpassword">Mot de passe oublié ?<i class="fa-solid fa-chevron-right"></i></a>
                             <a href=" ">Autres choses ?<i class="fa-solid fa-chevron-right"></i></a>
                         </div>
                     </div>
@@ -89,7 +88,7 @@
             evt.preventDefault();
             signInWithEmailAndPassword(auth, Email.value, Password.value)
                 .then(async (credentials) => {
-                    var ref = doc(db,"UserAutList", credentials.user.uid);
+                    var ref = doc(db, "UserAutList", credentials.user.uid);
                     const docSnap = await getDoc(ref);
 
                     if (docSnap.exists()) {
@@ -99,15 +98,15 @@
                             email: docSnap.data().email
                         }))
                         sessionStorage.setItem("user-creds", JSON.stringify(credentials.user));
-                        window.location.href = 'test.html'
+                        window.location.href = 'index.html'
                     }
                 })
-                
-            .catch ((error) => {
-                alert(error.message);
-                console.log(error.code);
-                console.log(error.message);
-            })
+
+                .catch((error) => {
+                    alert(error.message);
+                    console.log(error.code);
+                    console.log(error.message);
+                })
         }
 
         let ForgetPassword = () => {
@@ -122,7 +121,7 @@
                 })
         }
 
-        
+
         MainForm.addEventListener('submit', signInUser);
         forgetpassword.addEventListener('click', ForgetPassword)
 
