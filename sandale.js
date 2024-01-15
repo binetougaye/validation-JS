@@ -1,4 +1,4 @@
-let containers = document.querySelector(".container");
+let container = document.querySelector(".container");
 const chaussureImage = [
   {
     id: 1,
@@ -72,7 +72,7 @@ const chaussure = chaussureImage.map(
 );
 
 // affichage information
-containers.innerHTML = chaussure;
+container.innerHTML = chaussure;
 
 document.addEventListener("DOMContentLoaded", function () {
   const sandaleElement = document.querySelector(".sandale");
