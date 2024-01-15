@@ -4,6 +4,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    /* outline: 1px solid red; */
 }
 
 body {
@@ -141,9 +142,13 @@ img {
 }
 
 /* LOGIC */
+
+
 .bag {
     position: relative;
 }
+
+
 
 .panier {
     position: absolute;

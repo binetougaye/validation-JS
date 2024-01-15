@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+   <!-- Bootstrap CSS and Icon Link -->
+   <link rel="stylesheet" href="to-do.css">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="talon-simple.css">  
+  <title>talon</title>
+
+</head>
+<body>
+  <section class="banner">
+    <div class="container">
+      <div class="row">
+        <div class=" text-center text-md-center">
+          <h1 class="text-center text-light">Talons</h1>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--  -->
+  <section class="main">
+    <div id="product-list" class="card-container text-center"></div>
+  </section>
+
+  <script>
+    var products = [
+      {
+        description: "Talon long simple.",
+        price: 10000,
+        photo: "./images/2317010009_6_1_1-550x550.jpg"
+      },
+      {
+      
+        description: " Talon long 9.",
+        price: 10000,
+        photo: "./images/MAKET-600x600.jpg"
+      },
+      {
+     
+        description: " Talon long 5.",
+        price: 10000,
+        photo: "./images/mules-talon-fin-beige-vernis-pleaser-600x600.jpg"
+      },
+      {
+        description: "Talon long 5.",
+        price: 10000,
+        photo: "./images/9653870060_1_1_3-600x600.jpeg"
+      },
+      {
+        description: "Talon long 5.",
+        price: 10000,
+        photo: "./images/9695878060_1_1_3-600x600.jpeg"
+      },
+      {
+        description: "Talon long 5.",
+        price: 10000,
+        photo: "./images/9650070612_1_1_3-600x600.jpeg"
+      },
+
+      {
+        description: "Talon long 5.",
+        price: 10000,
+        photo: "./images/9703070612_1_1_3-e1655832289212-600x600.jpeg"
+      },
+      {
+        description: "Talon long 5.",
+        price: 10000,
+        photo: "./images/noo-600x600.jpg"
+      },
+      {
+        description: "Talon long 5.",
+        price: 10000,
+        photo: "./images/zara-chaussures-a-talons-en-vinyle-300x300.jpg"
+      },
+      {
+        description: "Talon long 5.",
+        price: 10000,
+        photo: "./images/201411005-1-aquablue-300x300.webp"
+      },
+      {
+        description: "Talon long 5.",
+        price: 10000,
+        photo: "./images/nude2-1-300x300.jpg"
+      },
+      {
+        description: "Talon long 5.",
+        price: 10000,
+        photo: "./images/202079432-3-300x300.webp"
+      },
+      {
+        description: "Talon long 5.",
+        price: 10000,
+        photo: "./images/3-300x300.webp"
+      },
+      {
+        description: "Talon long 5.",
+        price: 10000,
+        photo: "./images/asos-national-sandales-a-talon-haut-et-lanieres-300x300.jpeg"
+      },
+      {
+        description: "Talon long 5.",
+        price: 10000,
+        photo: "./images/sandales-a-talons-avec-lacets-600x600.jpg"
+      },
+      {
+        description: "Talon long 5.",
+        price: 10000,
+        photo: "./images/avant--300x300.webp"
+      },
+      {
+        description: "Talon long 5.",
+        price: 10000,
+        photo: "./images/201411180-1-lilac-e1654175553299-300x300 (1).webp"
+      },
+      {
+        description: "Talon long 5.",
+        price: 10000,
+        photo: "./images/202079432-3-300x300.webp"
+      },
+
+      // Ajoutez d'autres produits
+    ];
+
+    function displayProducts() {
+      var productListDiv = document.getElementById("product-list");
+      productListDiv.innerHTML = "";
+
+      products.forEach(function(product) {
+        var productDiv = document.createElement("div");
+        productDiv.className = "card";
+        productDiv.innerHTML = `
+          <img src="${product.photo}"class="img-fluid" alt="${product.name}">
+          <p>${product.description}</p>
+          <p>Prix: ${product.price} CFA</p>
+          <a href="#" class="main-btn ">Ajouter au panier</a>
+        `;
+        productListDiv.appendChild(productDiv);
+      });
+    }
+
+    displayProducts();
+  </script>
+</body>
+</html>

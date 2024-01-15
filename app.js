@@ -7,6 +7,13 @@ let sacHomme = document.querySelector(".homme");
 let hiver = document.querySelector(".hiver");
 let panier = document.querySelector(".panier");
 let span = document.querySelector("span");
+// let modalBody = document.querySelector(".modal-body");
+let modalImg = document.querySelector(".img");
+let product = document.querySelector(".product");
+let quantity = document.querySelector(".quantity");
+let price = document.querySelector(".price");
+let total = document.querySelector(".total");
+let Price = document.querySelector(".Price");
 const tabProduct = [
   {
     id: 1,
@@ -154,7 +161,7 @@ let getEventail = tabEventail.map((e) => {
     <p class="text-secondary">${e.title}</p>
     <p>${e.title2}</p>
     <p>${e.prix} FCFA</p>
-    <button class="mt-2 border-0 p-2 w-100 shadow btn">Ajouter au panier</button>
+    <button class="mt-2 border-0 p-2 w-100 shadow BTN">Ajouter au panier</button>
   </div>
   `;
 });
@@ -265,7 +272,7 @@ let getOthers = tabOthers.map((o) => {
   `;
 });
 // LOGIC EVENTAIL
-let buttons = document.querySelectorAll(".btn");
+let buttons = document.querySelectorAll(".BTN");
 let p = 0;
 console.log(buttons);
 for (i = 0; i < tabEventail.length; i++) {
@@ -277,6 +284,13 @@ for (i = 0; i < tabEventail.length; i++) {
       let incr = p++;
       panier.innerHTML = incr;
       // Ajout au panier
+      modalImg.innerHTML = `<img src="images/${test.img}" style="width:80px">`;
+      product.innerHTML = test.title;
+      quantity.innerHTML = `<p class="text-secondary">Quantity: ${incr}</p>`;
+      price.innerHTML = `<p>${test.prix}FCFA</p>`;
+      let prixFinal = test.prix * incr;
+      total.innerHTML = `Total:`;
+      Price.innerHTML = `${prixFinal} FCFA`;
     });
     // Finaliser la commande
   }
@@ -292,6 +306,13 @@ for (i = 0; i < tabBestSellers.length; i++) {
       let incr = p++;
       panier.innerHTML = incr;
       // Ajout au panier
+      modalImg.innerHTML = `<img src="images/${test.img}" style="width:80px">`;
+      product.innerHTML = test.title;
+      quantity.innerHTML = `<p class="text-secondary">Quantity: ${incr}</p>`;
+      price.innerHTML = `<p>${test.prix}FCFA</p>`;
+      let prixFinal = test.prix * incr;
+      total.innerHTML = `Total:`;
+      Price.innerHTML = `${prixFinal} FCFA`;
     });
     // Finaliser la commande
   }
@@ -307,6 +328,13 @@ for (i = 0; i < tabOthers.length; i++) {
       let incr = p++;
       panier.innerHTML = incr;
       // Ajout au panier
+      modalImg.innerHTML = `<img src="images/${test.img}" style="width:80px">`;
+      product.innerHTML = test.title;
+      quantity.innerHTML = `<p class="text-secondary">Quantity: ${incr}</p>`;
+      price.innerHTML = `<p>${test.prix}FCFA</p>`;
+      let prixFinal = test.prix * incr;
+      total.innerHTML = `Total:`;
+      Price.innerHTML = `${prixFinal} FCFA`;
     });
     // Finaliser la commande
   }
