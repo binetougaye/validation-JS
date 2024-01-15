@@ -53,6 +53,8 @@ button.btn {
 	transition: border-color 0.3s ease;
 }
     .card-container {
+	  /* position:relative; */
+	  bottom: 200px;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 40px;
@@ -70,11 +72,7 @@ button.btn {
       max-width: 100%;
       height: auto;
     }
-    input{
-        width: 150PX;
-        height: 20px;
-        margin: 20px;
-    }
+    
     textarea{
        position: relative;
         top: 20px;
@@ -84,9 +82,20 @@ button.btn {
 		justify-content: space-between;
 		margin-top: 10px;
 	  }
-  
-	  button {
+	  /* .send {
 		cursor: pointer;
+		position: relative;
+		right: 330px;
+		top: 60px;
 	  }
-    
+    .form {
+		position: relative;
+		bottom: 320px;
+		left: 300px;
+		
+	} 
+	.form h1{
+		position: relative;
+		right: 260px;
+	}  */
  
