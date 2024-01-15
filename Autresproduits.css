@@ -1,6 +1,24 @@
 .header{
     background-image: url(assets/Frame-17-4.png);
     height: 550px;
+    transition: 1s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+}
+.header h1{
+    padding: 250px  100px;
+    font-size: 20px;
+}
+.header nav{
+    padding: 250px  100px;
+    font-size: 20px;
+}
+.header nav .breadcrumb-item {
+    color: rgb(235, 44, 44);
+}
+.header nav a{
+    text-decoration: none;
+    color: gray;
 }
 .card{
     border: none !important;
