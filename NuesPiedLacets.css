@@ -37,3 +37,28 @@
     color: red;
 
 }
+.formlaire{
+    border: 1px solid black;
+    width: 700px;
+
+}
+.place{
+    width: 300px;
+    margin: 10px;
+}
+.prenom {
+    width: 620px;
+    /* margin: 10px; */
+}
+.largeur{
+    width: 620px;
+    border-radius: 10px;
+}
+.option:hover{
+    /* background-color: black; */
+    color: white;
+}
+.fa-motorcycle{
+    font-size: 30px;
+
+}
