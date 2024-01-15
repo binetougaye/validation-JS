@@ -96,20 +96,6 @@ function getAllDataOnce() {
         });
 }
 
-// Recuperation des données en temps reel
-// function getAllDataRealTime() {
-//     const dbRef = ref(db, 'UserAutList');
-
-//     onValue(dbRef, (snapshot) => {
-//         let utilisateurs = [];
-//         snapshot.forEach(childSnapshot => {
-//             utilisateurs.push(childSnapshot.val())
-//         });
-//         addAllItemToTable(utilisateurs);
-//     })
-// }
-
-                    
 
 window.onload = getAllDataOnce;
 

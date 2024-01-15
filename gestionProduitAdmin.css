@@ -24,7 +24,7 @@ nav ul {
 	padding-right: 40px;
 	text-align: right;
 	list-style-type: none;
-	
+
 }
 
 ul li {
@@ -52,41 +52,46 @@ button.btn {
 	border: 1px solid transparent;
 	transition: border-color 0.3s ease;
 }
-    .card-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 40px;
-    
-    }
 
-    .card {
-      border: 1px solid #ccc;
-      padding: 10px;
-      width: 100%;
-      border-radius: 5px;
-    }
+.card-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 40px;
 
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-    input{
-        width: 150PX;
-        height: 20px;
-        margin: 20px;
-    }
-    textarea{
-       position: relative;
-        top: 20px;
-    }
-	.card-buttons {
-		display: flex;
-		justify-content: space-between;
-		margin-top: 10px;
-	  }
-  
-	  button {
-		cursor: pointer;
-	  }
-    
- 
+}
+
+.card {
+	border: 1px solid #ccc;
+	padding: 10px;
+	width: 100%;
+	border-radius: 5px;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+.card-buttons {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px;
+}
+
+.send {
+	cursor: pointer;
+	position: relative;
+	left: 130px;
+	top: 60px;
+}
+
+#product-list .card{
+	width: 100%;
+	margin-top: 15%;
+	margin-bottom: 15%;
+	height: 510px;
+}
+
+#product-list{
+	margin-left: 1%;
+}
