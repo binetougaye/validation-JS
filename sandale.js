@@ -66,11 +66,12 @@ const chaussure = chaussureImage.map(
     <img src="${item.image}" alt="${item.title}">
     <p class="text-center titre">${item.title}</p>
     <p class="text-center">${item.price}</p>
-    <button class="m-auto ajout" onclick="voir()" style="border-radius:15px">Ajouter au panier</button>
+    <button class="m-auto ajout" onclick="voir()" style="border-radius:15px;">Ajouter au panier</button>
+
 </div>
 `
 );
-
+alert("hello");
 // affichage information
 container.innerHTML = chaussure;
 
@@ -81,3 +82,11 @@ document.addEventListener("DOMContentLoaded", function () {
   sandaleElement.style.height = "300px";
 });
 let ajout = document.querySelectorAll(".ajout");
+// document.addEventListener("DOMContentLoaded", function () {
+//   const sandaleElement = document.querySelector(".sandale");
+//   sandaleElement.style.backgroundImage = 'url("https://tayeur.com/wp-content/uploads/2022/07/Frame-17-3.png")';
+//   sandaleElement.style.height = '300px';
+
+//   const container = document.querySelector(".container");
+//   container.innerHTML = chaussure;
+// });

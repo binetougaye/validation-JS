@@ -69,6 +69,35 @@ for (i = 0; i < piedImage.length; i++) {
     let btn = ajout[i];
     ajout[i].addEventListener("click", function () {
       console.log(test);
+      container.innerHTML = `
+      <div class="mt-5">
+      <div class="row justify-content-center align-items-center">
+      <div class="col">
+      <img src="${test.image}">
+      </div>
+      <div class="col">
+      <h5>${test.title}</h5>
+      <h6  class="text-secondary">${test.price} FCFA</h6>
+      <p>Catégorie: ${test.title}</p>
+      <button class="mt-5 border-0 p-1 btnAdd">Ajouter au panier</button>
+      </div>
+      </div>
+      </div>
+      `;
+      //
+      let o = 0;
+      let btnAdd = document.querySelectorAll(".btnAdd");
+      for (i = 0; i < btnAdd.length; i++) {
+        btnAdd[i].addEventListener("click", function () {
+          let increm = o++;
+          panier.innerHTML = increm;
+          quantity.innerHTML = `<p class="text-secondary">Quantity: ${increm}</p>`;
+          price.innerHTML = `<p>${test.price}FCFA</p>`;
+          let prixFinal = test.price * increm;
+          total.innerHTML = `Total:`;
+          Price.innerHTML = `${prixFinal} FCFA`;
+        });
+      }
       let incr = p++;
       panier.innerHTML = incr;
       // Ajout au panier

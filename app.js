@@ -280,22 +280,37 @@ for (i = 0; i < tabEventail.length; i++) {
     let test = tabEventail[i];
     let btn = buttons[i];
     buttons[i].addEventListener("click", function () {
-      carousel.innerHTML = "";
-      main.innerHTML = `
-      <div class="container mt-5">
-      <div class="row justify-content-center">
-      <div class="col">
-      <img src="images/${test.img}">
-      </div>
-      <div class="col">
-      <h5>${test.title2}</h5>
-      <h6  class="text-secondary">${test.prix} FCFA</h6>
-      <p>Catégorie: ${test.title}</p>
-      <button class="mt-5 border-0 p-1 btn">Ajouter au panier</button>
-      </div>
-      </div>
-      </div>
-      `;
+      // carousel.innerHTML = "";
+      // main.innerHTML = `
+      // <div class="container mt-5">
+      // <div class="row justify-content-center">
+      // <div class="col">
+      // <img src="images/${test.img}">
+      // </div>
+      // <div class="col">
+      // <h5>${test.title2}</h5>
+      // <h6  class="text-secondary">${test.prix} FCFA</h6>
+      // <p>Catégorie: ${test.title}</p>
+      // <button class="mt-5 border-0 p-1 btnAddeventail">Ajouter au panier</button>
+      // </div>
+      // </div>
+      // </div>
+      // `;
+      let m = 0;
+      let btnAddEv = document.querySelectorAll(".btnAddeventail");
+      for (i = 0; i < btnAddEv.length; i++) {
+        btnAddEv[i].addEventListener("click", function () {
+          let incre = m++;
+          panier.innerHTML = incre;
+          quantity.innerHTML = `<p class="text-secondary">Quantity: ${incre}</p>`;
+          price.innerHTML = `<p>${test.prix}FCFA</p>`;
+          let prixFinal = test.prix * incre;
+          total.innerHTML = `Total:`;
+          Price.innerHTML = `${prixFinal} FCFA`;
+        });
+        localStorage.setItem("key", panier.innerHTML);
+        localStorage.getItem("key");
+      }
       console.log(test);
       let incr = p++;
       panier.innerHTML = incr;
@@ -330,14 +345,31 @@ for (i = 0; i < tabBestSellers.length; i++) {
       <h5>${test.title2}</h5>
       <h6  class="text-secondary">${test.prix} FCFA</h6>
       <p>Catégorie: ${test.title}</p>
-      <button class="mt-5 border-0 p-1 btn">Ajouter au panier</button>
+      <button class="mt-5 border-0 p-1 add">Ajouter au panier</button>
       </div>
       </div>
       </div>
       `;
+      // PAGE VOIR PRODUIT
+      let n = 0;
+      let btnAdd = document.querySelectorAll(".add");
+      console.log(btnAdd);
+      for (i = 0; i < btnAdd.length; i++) {
+        btnAdd[i].addEventListener("click", function () {
+          let inc = n++;
+          panier.innerHTML = inc;
+          quantity.innerHTML = `<p class="text-secondary">Quantity: ${inc}</p>`;
+          price.innerHTML = `<p>${test.prix}FCFA</p>`;
+          let prixFinal = test.prix * inc;
+          total.innerHTML = `Total:`;
+          Price.innerHTML = `${prixFinal} FCFA`;
+        });
+      }
+      // END
+
+      // Ajout au panier
       let incr = p++;
       panier.innerHTML = incr;
-      // Ajout au panier
       modalImg.innerHTML = `<img src="images/${test.img}" style="width:80px">`;
       product.innerHTML = test.title;
       quantity.innerHTML = `<p class="text-secondary">Quantity: ${incr}</p>`;
@@ -357,6 +389,36 @@ for (i = 0; i < tabOthers.length; i++) {
     let btn = othersProducts[i];
     othersProducts[i].addEventListener("click", function () {
       console.log(test);
+      carousel.innerHTML = "";
+      main.innerHTML = `
+      <div class="container mt-5">
+      <div class="row justify-content-center align-items-center">
+      <div class="col">
+      <img src="images/${test.img}">
+      </div>
+      <div class="col">
+      <h5>${test.title}</h5>
+      <h6  class="text-secondary">${test.prix} FCFA</h6>
+      <p>Catégorie: ${test.title2}</p>
+      <button class="mt-5 border-0 p-1 btnOthers">Ajouter au panier</button>
+      </div>
+      </div>
+      </div>
+      `;
+      //
+      let o = 0;
+      let btnOthers = document.querySelectorAll(".btnOthers");
+      for (i = 0; i < btnOthers.length; i++) {
+        btnOthers[i].addEventListener("click", function () {
+          let increm = o++;
+          panier.innerHTML = increm;
+          quantity.innerHTML = `<p class="text-secondary">Quantity: ${increm}</p>`;
+          price.innerHTML = `<p>${test.prix}FCFA</p>`;
+          let prixFinal = test.prix * increm;
+          total.innerHTML = `Total:`;
+          Price.innerHTML = `${prixFinal} FCFA`;
+        });
+      }
       let incr = p++;
       panier.innerHTML = incr;
       // Ajout au panier
