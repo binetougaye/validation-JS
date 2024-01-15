@@ -34,8 +34,6 @@ function showProducts(category) {
             '<img src="./images/redDress.jpg" alt="Femme 5" class="small-image">' +
             '<input type="checkbox" class="product-checkbox"> ' +
 
-            '<img src="./images/jupe.jpg" alt="Femme 6" class="small-image">' +
-            '<input type="checkbox" class="product-checkbox"> ' +
 
             '<img src="./images/street1.jpg" alt="Femme 7" class="small-image">' +
             '<input type="checkbox" class="product-checkbox"> ' +
