@@ -9,19 +9,19 @@ let tbody = document.getElementById('tbody');
 
 function addItemToTable(prenom, nom, email, action) {
 let trow = document.createElement('tr');
-let td1 = document.createElement('td');
+// let td1 = document.createElement('td');
 let td2 = document.createElement('td');
 let td3 = document.createElement('td');
 let td4 = document.createElement('td');
 let td5 = document.createElement('td');
 
-td1.innerHTML = ++user;
+// td1.innerHTML = ++user;
 td2.innerHTML = prenom;
 td3.innerHTML = nom;
 td4.innerHTML = email;
 td5.innerHTML = action;
 
-trow.appendChild(td1);
+// trow.appendChild(td1);
 trow.appendChild(td2);
 trow.appendChild(td3);
 trow.appendChild(td4);

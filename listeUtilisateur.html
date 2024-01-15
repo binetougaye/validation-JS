@@ -42,7 +42,7 @@
                 <table class="table mt-3" id="tableau">
                     <thead>
                         <tr>
-                            <th scope="col">N°</th>
+                            <!-- <th scope="col">N°</th> -->
                             <th scope="col">Prenom</th>
                             <th scope="col">Nom</th>
                             <th scope="col">Email</th>
@@ -65,7 +65,7 @@
                 let ligne = document.getElementsByTagName('tr')
 
                 for (let i = 0; i < ligne.length; i++) {
-                    cellule = ligne[i].getElementsByTagName('td')[1];
+                    cellule = ligne[i].getElementsByTagName('td')[0];
                     if (cellule) {
                         let texte = cellule.innerText;
                         if (texte.toUpperCase().indexOf(filtre) > -1) {
