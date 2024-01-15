@@ -1,12 +1,12 @@
 // Variables
-// Fonction Voir produit et AJOUT dans le Panier
-console.log(window.location.href);
 let container = document.querySelector(".pro");
 let categorieFemme = document.querySelector(".femme");
 let sacHomme = document.querySelector(".homme");
 let hiver = document.querySelector(".hiver");
 let panier = document.querySelector(".panier");
 let span = document.querySelector("span");
+let main = document.querySelector(".main");
+let carousel = document.querySelector(".carousel");
 // let modalBody = document.querySelector(".modal-body");
 let modalImg = document.querySelector(".img");
 let product = document.querySelector(".product");
@@ -280,6 +280,22 @@ for (i = 0; i < tabEventail.length; i++) {
     let test = tabEventail[i];
     let btn = buttons[i];
     buttons[i].addEventListener("click", function () {
+      carousel.innerHTML = "";
+      main.innerHTML = `
+      <div class="container mt-5">
+      <div class="row justify-content-center">
+      <div class="col">
+      <img src="images/${test.img}">
+      </div>
+      <div class="col">
+      <h5>${test.title2}</h5>
+      <h6  class="text-secondary">${test.prix} FCFA</h6>
+      <p>Catégorie: ${test.title}</p>
+      <button class="mt-5 border-0 p-1 btn">Ajouter au panier</button>
+      </div>
+      </div>
+      </div>
+      `;
       console.log(test);
       let incr = p++;
       panier.innerHTML = incr;
@@ -303,6 +319,22 @@ for (i = 0; i < tabBestSellers.length; i++) {
     let btn = btnBestSellers[i];
     btnBestSellers[i].addEventListener("click", function () {
       console.log(test);
+      carousel.innerHTML = "";
+      main.innerHTML = `
+      <div class="container mt-5">
+      <div class="row justify-content-center">
+      <div class="col">
+      <img src="images/${test.img}">
+      </div>
+      <div class="col">
+      <h5>${test.title2}</h5>
+      <h6  class="text-secondary">${test.prix} FCFA</h6>
+      <p>Catégorie: ${test.title}</p>
+      <button class="mt-5 border-0 p-1 btn">Ajouter au panier</button>
+      </div>
+      </div>
+      </div>
+      `;
       let incr = p++;
       panier.innerHTML = incr;
       // Ajout au panier
