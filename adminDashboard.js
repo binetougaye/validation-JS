@@ -9,7 +9,7 @@ let tbody = document.getElementById('tbody');
 
 function addItemToTable(prenom, nom, email, action) {
 let trow = document.createElement('tr');
-let td1 = document.createElement('td');
+// let td1 = document.createElement('td');
 let td2 = document.createElement('td');
 let td3 = document.createElement('td');
 let td4 = document.createElement('td');
