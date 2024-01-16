@@ -62,14 +62,12 @@ const chaussureImage = [
 
 
 ];
-const chaussure = chaussureImage.map((item) => 
-`
+const chaussure = chaussureImage.map((item) => `
 <div class="product m-4">
-    <img src="${item.image}" alt="${item.title}">
-    <p class="text-center titre">${item.title}</p>
-    <p class="text-center">${item.price}</p>
-    <button class="m-auto ajout" onclick="voir()" style="border-radius:15px;">Ajouter au panier</button>
-
+  <img src="${item.image}" alt="${item.title}">
+  <p class="text-center titre">${item.title}</p>
+  <p class="text-center">${item.price}</p>
+  <button class="m-auto ajout" onclick="voir()" style="border-radius:15px;">Ajouter au panier</button>
 </div>
 `);
 
