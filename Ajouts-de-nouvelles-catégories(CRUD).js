@@ -1,63 +1,63 @@
-let container = document.querySelector(".container");
-const talonlacet = [
-      { 
-        id: 1,
-        image: "talonsLacets1.png",
-        title: "talon lacet  rose",
-        price: "5.000 CFA",
-},
-    {
-        id: 2,
-        image: "talonsLacets2.png",
-        title:"talon lacet blanc",
-        price: "5.000 CFA",
-      
-    },
+var categories = [];
+function displayCategory() {
+    var categoryListDiv = document.getElementById("category-list");
+    categoryListDiv.innerHTML = "";
 
-    {
-        id: 3,
-        image: "talonsLacets3.png",
-        title:"talon lacet marron",
-        price: "5.000 CFA",
-    },
+    categories.forEach(function(category, index) {
+        var categoryDiv = document.createElement("div");
+        categoryDiv.className = "col-lg-4 col-md-6 mb-4";
+        categoryDiv.innerHTML = `
+            <div class="card">
+                <img src="${category.photo}" class="card-img-top" alt="${category.name}">
+                <div class="card-body">
+                    <h5 class="card-title text-center">${category.name}</h5>
+                    <p class="card-text text-center">${category.price} CFA</p>
+                    <button class="  m-auto  add" onclick="Look()">Ajouter</button>
+                    <div class="d-flex justify-content-between mt-3">
+                    <button class=" add" onclick="modifyCategory(${index})">Modifier</button>
+                    <button class="add" onclick="deleteCategory(${index})">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        categoryListDiv.appendChild(categoryDiv);
+    });
+}
+function Look() {
+    window.location.href = "file:///C:/Users/Lenovo/Documents/Bakeli/Javascript/T%C3%A2che-de-Validation-Javascript/validation-JS/achats.html"
+}        
+function addCategory() {
+    var name = document.getElementById("categoryName").value;
+    var price = parseFloat(document.getElementById("categoryPrice").value);
+    var imageInput = document.getElementById("categoryImage");
+    var image = imageInput.files[0];
+    if (name && !isNaN(price) && image) {
+        var newCategory = {
+            name: name,
+            price: price,
+            photo: URL.createObjectURL(image)
+        };
 
-    {
-        id:4,
-        image:"talonsLacets4.png",
-        title :"talon lacet noir",
-        price :"8.000 CFA",
-    },
-    {
-        id:5,
-        image:"talonsLacets5.png",
-        title :"talon lacet noir",
-        price :"7.000 CFA",
-    },
-    {
-        id:6,
-        image:"talonsLacets6.png",
-        title :"talon lacet noir",
-        price :"8.000 CFA",
-    },
+        categories.push(newCategory);
+        displayCategory();
+        document.getElementById("category-form").reset();
+    } else {
+        alert("Please remplissez les champs");
+    }
+}
 
-]
-const add =document.getElementById('btn');
-add.addEventListener('click',() =>{
-const talon =talonlacet.map((shoes) => 
-`
-<div class="product m-4">
-    <img src="talonsLacets/${shoes.image}" alt="${shoes.title}">
-    <p class="text-center title">${shoes.title}<p>
-    <p class="text-center  text-secondary">${shoes.price}</p>
-    <button class="  m-auto  add" onclick="Look()">Ajouter au panier</button>
-  </div>
-  
-`);
-
-container.innerHTML =talon;
-
-})
-
-
-
-
+function modifyCategory(index) {
+    var newName = prompt("Entrer la nouvelle catégorie:", categories[index].name);
+    if (newName !== null) {
+      categories[index].name = newName;
+      displayCategory();
+    }
+}
+function deleteCategory(index) {
+    var confirmDelete = confirm("Etes-vous sûr de vouloir supprimer cette catégorie");
+    if (confirmDelete) {
+        categories.splice(index, 1);
+        displayCategory();
+   }
+}
+displayCategory();
