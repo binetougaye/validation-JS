@@ -4,9 +4,14 @@ let categorieFemme = document.querySelector(".femme");
 let sacHomme = document.querySelector(".homme");
 let hiver = document.querySelector(".hiver");
 let panier = document.querySelector(".panier");
+let bag = document.querySelector(".bag");
+// bag.addEventListener("mouseover", function () {
+//   alert("hover");
+// });
 let span = document.querySelector("span");
 let main = document.querySelector(".main");
 let carousel = document.querySelector(".carousel");
+let title = document.querySelector(".title");
 // let modalBody = document.querySelector(".modal-body");
 let modalImg = document.querySelector(".img");
 let product = document.querySelector(".product");
@@ -157,11 +162,10 @@ const tabEventail = [
 let getEventail = tabEventail.map((e) => {
   eventail.innerHTML += `
   <div class="col-lg-3">
-    <img src="images/${e.img}" alt="" class="w-100">
+    <img src="images/${e.img}" alt="" class="w-100 imgEventail">
     <p class="text-secondary">${e.title}</p>
     <p>${e.title2}</p>
     <p>${e.prix} FCFA</p>
-    <button class="mt-2 border-0 p-2 w-100 shadow BTN">Ajouter au panier</button>
   </div>
   `;
 });
@@ -201,11 +205,10 @@ const tabBestSellers = [
 let getBS = tabBestSellers.map((b) => {
   bestSellers.innerHTML += `
   <div class="col-lg-3 p-0">
-    <img src="images/${b.img}" alt="" class="w-100">
+    <img src="images/${b.img}" alt="" class="w-100 imgBestSellers">
     <p class="text-secondary">${b.title}</p>
     <p>${b.title2}</p>
     <p>${b.prix} FCFA</p>
-    <button class="mt-2 border-0 p-2 shadow button">Ajouter au panier</button>
   </div>
   `;
 });
@@ -262,40 +265,39 @@ let tabOthers = [
 let getOthers = tabOthers.map((o) => {
   autresProduits.innerHTML += `
   <div class="col-lg-3">
-<img src="images/${o.img}" alt="" class="w-100">
+<img src="images/${o.img}" alt="" class="w-100 othersImg">
 <p class="text-secondary">${o.title}</p>
 <p>${o.title2}</p>
 <p>${o.prix} FCFA</p>
-<button class="mt-2 border-0 p-2 shadow btnOthers">Ajouter au panier</button>
-
 </div>
   `;
 });
 // LOGIC EVENTAIL
-let buttons = document.querySelectorAll(".BTN");
-let p = 0;
-console.log(buttons);
+let imgEventail = document.querySelectorAll(".imgEventail");
+console.log(imgEventail);
+// let p = 0;
 for (i = 0; i < tabEventail.length; i++) {
-  for (i = 0; i < buttons.length; i++) {
+  for (i = 0; i < imgEventail.length; i++) {
     let test = tabEventail[i];
-    let btn = buttons[i];
-    buttons[i].addEventListener("click", function () {
-      // carousel.innerHTML = "";
-      // main.innerHTML = `
-      // <div class="container mt-5">
-      // <div class="row justify-content-center">
-      // <div class="col">
-      // <img src="images/${test.img}">
-      // </div>
-      // <div class="col">
-      // <h5>${test.title2}</h5>
-      // <h6  class="text-secondary">${test.prix} FCFA</h6>
-      // <p>Catégorie: ${test.title}</p>
-      // <button class="mt-5 border-0 p-1 btnAddeventail">Ajouter au panier</button>
-      // </div>
-      // </div>
-      // </div>
-      // `;
+    let btn = imgEventail[i];
+    imgEventail[i].addEventListener("click", function () {
+      carousel.innerHTML = `<img src="images/panier.png">`;
+      title.innerHTML = "Panier";
+      main.innerHTML = `
+      <div class="container mt-5">
+      <div class="row justify-content-center">
+      <div class="col">
+      <img src="images/${test.img}">
+      </div>
+      <div class="col">
+      <h5>${test.title2}</h5>
+      <h6  class="text-secondary">${test.prix} FCFA</h6>
+      <p>Catégorie: ${test.title}</p>
+      <button class="mt-5 border-0 p-1 btnAddeventail">Ajouter au panier</button>
+      </div>
+      </div>
+      </div>
+      `;
       let m = 0;
       let btnAddEv = document.querySelectorAll(".btnAddeventail");
       for (i = 0; i < btnAddEv.length; i++) {
@@ -325,14 +327,14 @@ for (i = 0; i < tabEventail.length; i++) {
   }
 }
 // LOGIC BESTSELLERS
-let btnBestSellers = document.querySelectorAll(".button");
+let imgBestSellers = document.querySelectorAll(".imgBestSellers");
 for (i = 0; i < tabBestSellers.length; i++) {
-  for (i = 0; i < btnBestSellers.length; i++) {
+  for (i = 0; i < imgBestSellers.length; i++) {
     let test = tabBestSellers[i];
-    let btn = btnBestSellers[i];
-    btnBestSellers[i].addEventListener("click", function () {
+    let btn = imgBestSellers[i];
+    imgBestSellers[i].addEventListener("click", function () {
       console.log(test);
-      carousel.innerHTML = "";
+      carousel.innerHTML = `<img src="images/panier.png">`;
       main.innerHTML = `
       <div class="container mt-5">
       <div class="row justify-content-center">
@@ -348,7 +350,7 @@ for (i = 0; i < tabBestSellers.length; i++) {
       </div>
       </div>
       `;
-      // PAGE VOIR PRODUIT
+      //       // PAGE VOIR PRODUIT
       let n = 0;
       let btnAdd = document.querySelectorAll(".add");
       console.log(btnAdd);
@@ -363,9 +365,9 @@ for (i = 0; i < tabBestSellers.length; i++) {
           Price.innerHTML = `${prixFinal} FCFA`;
         });
       }
-      // END
+      //       // END
 
-      // Ajout au panier
+      //       // Ajout au panier
       let incr = p++;
       panier.innerHTML = incr;
       modalImg.innerHTML = `<img src="images/${test.img}" style="width:80px">`;
@@ -376,11 +378,12 @@ for (i = 0; i < tabBestSellers.length; i++) {
       total.innerHTML = `Total:`;
       Price.innerHTML = `${prixFinal} FCFA`;
     });
-    // Finaliser la commande
+    //     // Finaliser la commande
   }
 }
 // LOGIC AUTRES PRODUITS
-let othersProducts = document.querySelectorAll(".btnOthers");
+let othersProducts = document.querySelectorAll(".othersImg");
+console.log(othersProducts);
 for (i = 0; i < tabOthers.length; i++) {
   for (i = 0; i < othersProducts.length; i++) {
     let test = tabOthers[i];

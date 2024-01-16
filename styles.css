@@ -161,6 +161,16 @@ img {
     font-size: 10px;
 }
 
+.btnPanier {
+    background-color: #e52c2b;
+    color: #fff;
+}
+
+/* .btnPanier:hover {
+    background-color: #fff;
+    color: #e52c2b;
+} */
+
 /* FOOTER */
 footer {
     background-color: #191919;

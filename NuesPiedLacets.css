@@ -10,26 +10,21 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 600px;
+    height: 100vh;
     position: relative;
-
-
 }
 
-.bg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+
 
 .nuesH1 h1 {
     font-size: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 100px;
-
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .ajout {
@@ -49,28 +44,34 @@
     color: red;
 
 }
-.formlaire{
+
+.formlaire {
     border: 1px solid black;
     width: 700px;
 
 }
-.place{
+
+.place {
     width: 300px;
     margin: 10px;
 }
+
 .prenom {
     width: 620px;
     /* margin: 10px; */
 }
-.largeur{
+
+.largeur {
     width: 620px;
     border-radius: 10px;
 }
-.option:hover{
+
+.option:hover {
     /* background-color: black; */
     color: white;
 }
-.fa-motorcycle{
+
+.fa-motorcycle {
     font-size: 30px;
 
 }
