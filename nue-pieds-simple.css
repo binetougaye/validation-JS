@@ -27,6 +27,7 @@
 .ajout{
     display: inline-block;
     width: 100%;
+    background-color: red;
     color: white;
     border: none;
     padding: 5px;

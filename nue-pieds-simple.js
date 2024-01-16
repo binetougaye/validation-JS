@@ -119,7 +119,7 @@ const affichage = infoimage.map((item) =>
         </div>
         <p class="text-center titre">${item.title}<p>
         <p class="text-center">${item.price}</p>
-        <button class="bg-danger rounded ajout" onclick="voir()">Ajouter au panier</button>
+        <button class="rounded ajout" onclick="voir()">Ajouter au panier</button>
     </div>`
 );
 
