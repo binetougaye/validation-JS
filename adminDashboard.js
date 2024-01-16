@@ -99,18 +99,34 @@ function getAllDataOnce() {
 
 window.onload = getAllDataOnce;
 
-                    // Regle firestore
-                    // allow read, write: if request.auth != null;
+// Regle firestore
+// allow read, write: if request.auth != null;
 
 
+// recuperation des infos sur le sessionStorage
+// let UserCreds = JSON.parse(sessionStorage.getItem("user-creds"))
+let UserInfo = JSON.parse(sessionStorage.getItem("user-info"))
 
+// let MsgHead = document.getElementById("msg")
+let userName = document.getElementById("userName")
+let signoutBtn = document.getElementById("signoutbutton")
 
-                    // // Suppression d'un utilisateur
-                    // let supp = document.getElementById('test')
+// function pour la deconnexion et redirection vers la page de connexion
+let Signout = () => {
+    sessionStorage.removeItem("user-creds")
+    sessionStorage.removeItem("user-info")
+    window.location.href = 'SignIn.html'
+}
 
-                    // supp.addEventListener('click', function () {
-                    
-                    //     let toDel = trow.innerHTML;
-                    //     toDel.innerHTML = '';
-                    // })
+// function pour verifier les infos user dans le sessionStorage et afficher les infos sur le DOM  
+let CheckCred = () => {
+    if (!sessionStorage.getItem("user-creds")) {
+        window.location.href = 'SignIn.html'
+    } else {
+        // MsgHead.innerText = ` Votre Email: ${UserCreds.email}`
+        userName.innerHTML = `${UserInfo.lastname + " " + UserInfo.firstname}`
+    }
+}
 
+window.addEventListener('load', CheckCred);
+signoutBtn.addEventListener('click', Signout)
