@@ -1,0 +1,290 @@
+nav {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 5px 0;
+}
+
+nav .logo {
+	width: 120px;
+	cursor: pointer;
+	font-size: 2.5rem;
+	font-style: oblique;
+	font-weight: bold;
+	text-decoration: none;
+	color: #94f7e6;
+}
+
+nav ul {
+	display: flex;
+	justify-content: flex-end;
+	flex: 1;
+	align-items: center;
+	padding-right: 40px;
+	text-align: right;
+	list-style-type: none;
+	
+}
+
+ul li {
+	margin-right: 10px;
+}
+
+ul li a {
+	position: relative;
+	padding: 10px 20px;
+	text-decoration: none;
+	color: #94f7e6;
+	font-style: oblique;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+button.btn {
+	/* padding: px; */
+	font-size: 1.2rem;
+	font-weight: bold;
+	font-style: italic;
+	margin-top: 0;
+	border: 1px solid transparent;
+	
+}
+
+.add{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 5px;
+    width: 150px;
+    cursor: pointer;
+}
+
+
+
+
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 40px;
+    
+    }
+
+    .card {
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+   
+	.card-buttons {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 10px;
+	  }
+	   .send {
+		cursor: pointer;
+		position: relative;
+		left: 130px;
+		top: 60px;
+	  }
+
+
+
+
+	  body{
+		margin: 0;
+		padding: 0;
+		background-color: #edf1f5;
+	  }
+	  	  /*-------------------- SIDEBAR --------------------*/
+	  
+	  .container-fluid{
+		padding: 0;
+	  }
+	  
+	  h1{
+		font-style: italic;
+		color: #2f323e;
+	  }
+	  
+	  a{
+		text-decoration: none;
+		background-color: #edf1f5;
+		color: #2f323e;
+		padding: 7% 5%;
+		margin-bottom: 5%;
+		border-right: 1px solid #fff;
+	  }
+	  a:hover{
+		text-decoration: none;
+		background-color: #2f323e;
+		color: #fff;
+		padding: 7% 5%;
+		margin-bottom: 5%;
+		border-right: 1px solid #fff;
+	  }
+	  
+	  a:focus{
+		text-decoration: none;
+		background-color: #2f323e;
+		color: #fff;
+		padding: 7% 5%;
+		margin-bottom: 5%;
+		border-right: 1px solid #fff;
+	  }
+	  
+	  
+	  
+	  i{
+		margin-right: 4%;
+	  }
+	  
+	  ul{
+		list-style: none;
+		padding: 0;
+	  
+		display: flex;
+		flex-direction: column;
+	  
+		margin-top: 35%;
+		margin-bottom: 15%;
+	  }
+	  
+	  li{
+		margin-bottom: 5%;
+		background-color: #fff;
+	  }
+	  
+	  
+	  #sidebar{
+		width: 20%;
+		background-color: #fff;
+		z-index: 1;
+	  }
+	  
+	  #sidebar button{
+		margin-bottom: 5%;
+		padding: 7% 5%;
+		border: none;
+		color: #2f323e;
+	  }
+	  
+	  #sidebar button:hover{
+		border: 1px solid #fff;
+		background-color: #2f323e;
+		color: #fff;
+	  }
+	  
+	  
+	  
+	  
+	  
+	  #dashboard{
+		width: 80%;
+		/* margin: auto; */
+	  }
+	  
+	  
+	  #dashboard .stats{
+		margin-top: 12%;
+	  }
+	  
+	  #dashboard .card {
+		width: 25%;
+		height: 185px;
+	  }
+	  
+	  
+	  button{
+		background-color: #edf1f5;
+		margin-left: 5%;
+	  }
+	  
+	  
+	  
+	  #searchBar{
+		width: 20%;
+	  }
+	  /* 
+	  .profile{
+		width: 10%;
+	  } */
+	  
+	  .profile{
+		background-color: #2f323e;
+		justify-content: end;
+		/* margin-left: 1%; */
+	  }
+	  
+	  .profile img{
+		width: 70px;
+		border-radius: 50%;
+	  }
+	  .profile h6{
+		width: 15%;
+		color: #fff;
+		font-style: italic;
+		margin-top: 1%;
+	  }
+	  
+	  
+	  /* TABLEAU UTILISATEURS */
+	  
+	  /* #dashboard>div:nth-child(2) {
+		margin-left: 1%;
+	  } */
+	  
+	  #client{
+		margin-top: 2%;
+		font-size: 45px;
+	  }
+	  
+	  i{
+		cursor: pointer;
+	  }
+	  
+	  #tableau{
+		margin-left: 5px;
+	  }
+	  
+	  
+	  #searchbar{
+		margin-left: 1%;
+	  }
+	  
+	  @media screen and (max-width: 768px) {
+		.container-fluid {
+		  flex-direction: column;
+		  padding: 0;
+		  }
+	  
+	  
+		#sidebar{
+		  width: 100%;
+		  background-color: #fff;
+		  z-index: 1;
+		}  
+	  
+		#dashboard{
+		  width: 100%;
+		}
+	  
+	  
+		.profile{
+		  position: absolute;
+		  top: 80px;
+		  z-index: 2;
+		  justify-content: start;
+		}
+	  }

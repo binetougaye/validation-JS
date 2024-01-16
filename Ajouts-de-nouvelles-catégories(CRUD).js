@@ -1,38 +1,63 @@
-const categories = [];
-function AjoutTable() {
-    const tableBody = document.getElementById('productTableBody');
-    tableBody.innerHTML = '';
-    categories.forEach(category => {
-        const row = tableBody.insertRow();
-        row.innerHTML = `<td>${category.id}</td>
-                         <td>${category.name}</td>
-                         <td><img src="image.jpg.jpg" alt="" width="50" height="50"></td>
-                            <td> 
-                            <button onclick="modifyCategory(${category.id})">Modifier</button>
-                            <button onclick="deleteCategory(${category.id})">Supprimer</button>
-                            </td>`;
-    });
-}
-function addcategories() {
-    const categoriesName = document.getElementById('productName').value;
-    const newId = categories.length + 1;
-    const newCategories = {
-        id: newId,
-        name: categoriesName,
-        action: '',  
-    };
-    categories.push(newCategories);
-    AjoutTable();
-}
-function modifyCategory(Id) {
-    const categoryModify = categories.find(category => category.id === Id);
-    const newName = prompt('Modify category name:', categoryModify.name);
-    if (newName !== null) {
-        categoryModify.name = newName;
-        AjoutTable();
-    }
-}
-function deleteCategory(Id) {
-    categories.splice(categories.findIndex(category => category.id === Id), 1);
-    AjoutTable();
-}
+let container = document.querySelector(".container");
+const talonlacet = [
+      { 
+        id: 1,
+        image: "talonsLacets1.png",
+        title: "talon lacet  rose",
+        price: "5.000 CFA",
+},
+    {
+        id: 2,
+        image: "talonsLacets2.png",
+        title:"talon lacet blanc",
+        price: "5.000 CFA",
+      
+    },
+
+    {
+        id: 3,
+        image: "talonsLacets3.png",
+        title:"talon lacet marron",
+        price: "5.000 CFA",
+    },
+
+    {
+        id:4,
+        image:"talonsLacets4.png",
+        title :"talon lacet noir",
+        price :"8.000 CFA",
+    },
+    {
+        id:5,
+        image:"talonsLacets5.png",
+        title :"talon lacet noir",
+        price :"7.000 CFA",
+    },
+    {
+        id:6,
+        image:"talonsLacets6.png",
+        title :"talon lacet noir",
+        price :"8.000 CFA",
+    },
+
+]
+const add =document.getElementById('btn');
+add.addEventListener('click',() =>{
+const talon =talonlacet.map((shoes) => 
+`
+<div class="product m-4">
+    <img src="talonsLacets/${shoes.image}" alt="${shoes.title}">
+    <p class="text-center title">${shoes.title}<p>
+    <p class="text-center  text-secondary">${shoes.price}</p>
+    <button class="  m-auto  add" onclick="Look()">Ajouter au panier</button>
+  </div>
+  
+`);
+
+container.innerHTML =talon;
+
+})
+
+
+
+

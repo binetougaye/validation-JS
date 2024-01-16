@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+
+    <!-- Bootstrap CSS and Icon Link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS Link -->
+    <link rel="stylesheet" href="recup.css">
+</head>
+<body>
+  <div class="container-fluid d-flex">
+    <section id="sidebar">
+        <h1>Belle <br> Gueule</h1>
+        <ul class="">
+            <a href="adminDashboard.html"><i class="bi bi-house-fill"></i>Accueil</a>
+            <a href="listeUtilisateur.html"><i class="bi bi-person-fill"></i>Liste des Utilisateurs</a>
+            <a href="#"><i class="bi bi-bag-fill"></i>Ajout des Articles</a>
+            <a href="#"><i class="bi bi-tags-fill"></i>Ajout des Catégories</a>
+        </ul>
+        <button>Sign Out</button>
+    </section>
+    <section id="dashboard">
+        <div class="row d-flex  w-100 profile py-2">
+            <img src="images/images.jpg" alt="avatar">
+            <h6>Admin</h6>
+        </div>
+        <div class="row d-flex justify-content-around w-100 stats">
+            <div class="card text-center pt-4">Nombre de Clients<br><span id="clients"></span></div>
+            <div class="card text-center pt-4">Nombre d'Admin</div>
+            <div class="card text-center pt-4">Nombre d'Articles</div>
+        </div>
+    </section>
+</div>
+<div></div>
+    <div class="container mt-5">
+        <form id="category-form" class="mb-4">
+            <h1>Ajouts Catégories</h1>
+            <div class="mb-3">
+                <label for="categoryName">CatégoriesName:</label>
+                <input type="text" id="categoryName" class="form-control w-25" required>
+            </div>
+            <div class="mb-3">
+                <label for="categoryPrice">Prix</label>
+                <input type="number" id="categoryPrice" class="form-control w-25" step="0.01" required>
+            </div>
+            <div class="mb-3">
+                <label for="categoryImage"> CatégoriesImage:</label>
+                <input type="file" id="categoryImage" class="form-control w-25" accept="image/*" required>
+            </div>
+            <button type="button" class=" add" onclick="addCategory()">Ajouter</button>
+        </form>
+
+        <div id="category-list" class="row"></div>
+    </div>
+
+    <script>
+
+var categories = [];
+function displayCategory() {
+    var categoryListDiv = document.getElementById("category-list");
+    categoryListDiv.innerHTML = "";
+
+    categories.forEach(function(category, index) {
+        var categoryDiv = document.createElement("div");
+        categoryDiv.className = "col-lg-4 col-md-6 mb-4";
+        categoryDiv.innerHTML = `
+            <div class="card">
+                <img src="${category.photo}" class="card-img-top" alt="${category.name}">
+                <div class="card-body">
+                    <h5 class="card-title text-center">${category.name}</h5>
+                    <p class="card-text text-center">${category.price} CFA</p>
+                    <button class="  m-auto  add" onclick="Look()">Ajouter</button>
+                    <div class="d-flex justify-content-between mt-3">
+                    <button class=" add" onclick="modifyCategory(${index})">Modifier</button>
+                    <button class="add" onclick="deleteCategory(${index})">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        categoryListDiv.appendChild(categoryDiv);
+    });
+}
+function Look() {
+    window.location.href = "URL_DE_LA_PAGE_DE_DESTINATION";
+}        
+
+function addCategory() {
+    var name = document.getElementById("categoryName").value;
+    var price = parseFloat(document.getElementById("categoryPrice").value);
+    var imageInput = document.getElementById("categoryImage");
+    var image = imageInput.files[0];
+
+    if (name && !isNaN(price) && image) {
+        var newCategory = {
+            name: name,
+            price: price,
+            photo: URL.createObjectURL(image)
+        };
+
+        categories.push(newCategory);
+        displayCategory();
+        document.getElementById("category-form").reset();
+    } else {
+        alert("Please remplissez les champs");
+    }
+}
+
+function modifyCategory(index) {
+    var newName = prompt("Entrer la nouvelle catégorie:", categories[index].name);
+    if (newName !== null) {
+      categories[index].name = newName;
+      displayCategory();
+    }
+}
+
+function deleteCategory(index) {
+    var confirmDelete = confirm("Etes-vous sûr de vouloir supprimer cette catégorie");
+    if (confirmDelete) {
+        categories.splice(index, 1);
+        displayCategory();
+    }
+}
+
+displayCategory();
+// Référence à la base de données Firestore
+var db = firebase.firestore();
+
+// Exemple d'ajout de données à Firestore
+function addCategoryToFirestore(category) {
+  db.collection("categories").add(category)
+    .then(function(docRef) {
+      console.log("Document written with ID: ", docRef.id);
+    })
+    .catch(function(error) {
+      console.error("Error adding document: ", error);
+    });
+}
+
+// Référence à la base de données Firestore
+var db = firebase.firestore();
+
+// Exemple d'ajout de données à Firestore
+function addCategoryToFirestore(category) {
+  db.collection("categories").add(category)
+    .then(function(docRef) {
+      console.log("Document written with ID: ", docRef.id);
+    })
+    .catch(function(error) {
+      console.error("Error adding document: ", error);
+    });
+}
+
+    </script>
+    <!-- Firebase App (ce script est nécessaire pour tout script Firebase) -->
+<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+
+<!-- Firebase Auth (si vous avez besoin d'authentification) -->
+<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js"></script>
+
+<!-- Firebase Firestore (si vous avez besoin d'une base de données) -->
+<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js"></script>
+
+<!-- Firebase Storage (si vous avez besoin de stockage) -->
+<script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-storage.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
