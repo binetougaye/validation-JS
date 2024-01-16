@@ -59,6 +59,13 @@ const chaussureImage = [
     price: 3.0,
   },
 ];
+let modalImg = document.querySelector(".img");
+let product = document.querySelector(".product");
+let quantity = document.querySelector(".quantity");
+let price = document.querySelector(".price");
+let total = document.querySelector(".total");
+let Price = document.querySelector(".Price");
+let panier = document.querySelector(".panier");
 const chaussure = chaussureImage.map(
   (item) =>
     `
@@ -71,7 +78,7 @@ const chaussure = chaussureImage.map(
 </div>
 `
 );
-alert("hello");
+
 // affichage information
 container.innerHTML = chaussure;
 
@@ -82,6 +89,29 @@ document.addEventListener("DOMContentLoaded", function () {
   sandaleElement.style.height = "300px";
 });
 let ajout = document.querySelectorAll(".ajout");
+console.log(ajout);
+for (i = 0; i < chaussureImage.length; i++) {
+  for (i = 0; i < ajout.length; i++) {
+    let test = chaussureImage[i];
+    let btn = ajout[i];
+    ajout[i].addEventListener("click", function () {
+      let m = 0;
+
+      console.log(test);
+      let incr = p++;
+      panier.innerHTML = incr;
+      // Ajout au panier
+      modalImg.innerHTML = `<img src="images/${test.image}" style="width:80px">`;
+      product.innerHTML = test.title;
+      quantity.innerHTML = `<p class="text-secondary">Quantity: ${incr}</p>`;
+      price.innerHTML = `<p>${test.price}FCFA</p>`;
+      let prixFinal = test.price * incr;
+      total.innerHTML = `Total:`;
+      Price.innerHTML = `${prixFinal} FCFA`;
+    });
+    // Finaliser la commande
+  }
+}
 // document.addEventListener("DOMContentLoaded", function () {
 //   const sandaleElement = document.querySelector(".sandale");
 //   sandaleElement.style.backgroundImage = 'url("https://tayeur.com/wp-content/uploads/2022/07/Frame-17-3.png")';

@@ -308,8 +308,6 @@ for (i = 0; i < tabEventail.length; i++) {
           total.innerHTML = `Total:`;
           Price.innerHTML = `${prixFinal} FCFA`;
         });
-        localStorage.setItem("key", panier.innerHTML);
-        localStorage.getItem("key");
       }
       console.log(test);
       let incr = p++;
