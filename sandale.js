@@ -82,4 +82,3 @@ container.innerHTML = chaussure;
 //   const container = document.querySelector(".container");
 //   container.innerHTML = chaussure;
 // });
-
