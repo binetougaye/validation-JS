@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* outline: 1px solid red; */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo {
+    width: 90px;
+}
+
+.navbar {}
+
+#active {
+    color: #e52c2b;
+    font-size: 15px;
+}
+
+.nav-link:hover {
+    color: #e52c2b;
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+}
+
+.carousel-item .active {
+    position: relative;
+}
+
+.text-accueil {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.carousel h1 {
+    font-size: 92px;
+    text-wrap: nowrap;
+    letter-spacing: -2px;
+}
+
+.buttons-accueil button {
+    width: 220px;
+}
+
+.buttons-accueil .btn1 {
+    background-color: #e52c2b;
+}
+
+.buttons-accueil .btn1:hover {
+    background-color: #000;
+}
+
+.buttons-accueil .btn2 {
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.buttons-accueil .btn2:hover {
+    background-color: #e52c2b;
+    border: none;
+    color: #fff;
+}
+
+/* NOS PRODUITS */
+.imgProduct {
+    width: 198px;
+}
+
+.produits {
+    background-color: #f6f6f6;
+}
+
+.collectionImg {
+    width: 300px;
+}
+
+.news {
+    color: #e52c2b;
+}
+
+/* HIVER */
+.imgHiver {
+    width: 300px;
+}
+
+/* MEILLEURES VENTES */
+.ventes {
+    width: 300px;
+}
+
+.bestsellers {
+    padding-left: 110px;
+    padding-right: 110px;
+}
+
+/* SHOP */
+.shop {
+    position: relative;
+}
+
+.shopBtn button {
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    border: none;
+    background-color: transparent;
+    border: 1px solid #fff;
+    width: 300px;
+    color: #fff;
+}
+
+.shopBtn button:hover {
+    background-color: #fff;
+    color: #e52c2b;
+}
+
+/* EVENTAIL */
+.btn {
+    background-color: #e52c2b;
+    color: #fff;
+}
+
+/* Autres produits */
+.others {
+    background-color: #f6f6f6;
+}
+
+.btns {
+    width: 300px;
+}
+
+/* LOGIC */
+
+
+.bag {
+    position: relative;
+}
+
+
+
+.panier {
+    position: absolute;
+    top: 0px;
+    right: -5px;
+    background-color: #e52c2b;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    font-size: 10px;
+}
+
+.btnPanier {
+    background-color: #e52c2b;
+    color: #fff;
+}
+
+/* .btnPanier:hover {
+    background-color: #fff;
+    color: #e52c2b;
+} */
+
+/* FOOTER */
+footer {
+    background-color: #191919;
+    color: #fff;
+}
+
+input {
+    background-color: transparent;
+    border: 1px solid #fff;
+    width: 250px;
+}
