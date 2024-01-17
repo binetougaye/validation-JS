@@ -1,48 +1,66 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
-/* .sandale {
-  background-image: url("https://tayeur.com/wp-content/uploads/2022/06/17_most_comfortable_heels_best_comfy_stylish_heels_2021_19-1.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 400px;
-} */
 .sandale {
   background-image: url("https://tayeur.com/wp-content/uploads/2022/06/17_most_comfortable_heels_best_comfy_stylish_heels_2021_19-1.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 400px;
+  position: relative;
 }
 
-.titre h1 {
-  font-size: 70px;
+.logos {
+  width: 500px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.title {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 180px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.info-block {
-    border: 1px solid #ddd;
-    padding: 20px;
-    margin: 10px;
-    text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s;
-  }
 
-  .info-block:hover {
-    transform: scale(1.1);
-  }
-  /* Styles pour les cartes */
-.info-block {
-  background-color: #f2f2f2; 
-  border-bottom: 1px solid red; 
+.title-middle {
+  font-size: 140px;
 }
+
+.info-block {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.info-block:hover {
+  transform: scale(1.1);
+}
+
+/* Styles pour les cartes */
+.info-block {
+  background-color: #f2f2f2;
+  border-bottom: 1px solid red;
+  height: 300px;
+
+}
+
+
 
 .hidden-text {
-opacity: 0.9;
-  font-size: 10px; 
+  opacity: 0.9;
+  font-size: 10px;
 }
+
 /* -----------partenaire----------- */
 /* .Partenaire {
   background-image: url("https://tayeur.com/wp-content/uploads/2016/02/Frame-6-1.jpg");
@@ -57,7 +75,7 @@ font-size: 40px;
 padding: 15px;
 } */
 .Partenaire {
-  background-image:url("https://tayeur.com/wp-content/uploads/2016/02/Frame-6-1.jpg") ;
+  background-image: url("https://tayeur.com/wp-content/uploads/2016/02/Frame-6-1.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -72,9 +90,8 @@ padding: 15px;
   justify-content: center;
   padding-top: 80px;
 }
-marquee{
-  
-}
+
+marquee {}
 
 /* -----------------------Timeline----------------- */
 /* .timeline-container {
@@ -106,41 +123,36 @@ marquee{
 } */
 /* +++++++  marque    ++++++++ */
 .image-container {
-  display: flex; 
+  display: flex;
   overflow: hidden;
 }
 
 .image-container img {
-  width: 200px; 
-  height: auto; 
+  width: 200px;
+  height: auto;
   margin: 0;
 }
+
 /* ------------------Card------------- */
 
 
-    .row {
-      display: flex;
-      justify-content: space-around;
-      margin-top: 20px;
-    }
+.row {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
 
-    .card {
-      border: 1px solid #ddd; 
-      border-radius: 10px;
-      background-color: #f8f9fa; 
-      padding: 20px;
-      text-align: center;
-    }
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  text-align: center;
+}
 
-    .card img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      margin: 0 auto; 
-    }
- 
-
-
-
-
-  
+.card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
