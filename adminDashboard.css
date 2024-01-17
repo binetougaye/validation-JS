@@ -1,7 +1,7 @@
 body{
   margin: 0;
   padding: 0;
-  background-color: #edf1f5;
+  background-color: #ff00001a;
 }
 
 /*-------------------- SIDEBAR --------------------*/
@@ -12,20 +12,21 @@ body{
 
 h1{
   font-style: italic;
-  color: #2f323e;
+  color: #e52c2b;
+  margin-left: 4%;
 }
 
 a{
   text-decoration: none;
-  background-color: #edf1f5;
-  color: #2f323e;
+  background-color: #ff00001a;
+  color: #e52c2b;
   padding: 7% 5%;
   margin-bottom: 5%;
   border-right: 1px solid #fff;
 }
 a:hover{
   text-decoration: none;
-  background-color: #2f323e;
+  background-color: #e52c2b;
   color: #fff;
   padding: 7% 5%;
   margin-bottom: 5%;
@@ -34,7 +35,7 @@ a:hover{
 
 a:focus{
   text-decoration: none;
-  background-color: #2f323e;
+  background-color: #e52c2b;
   color: #fff;
   padding: 7% 5%;
   margin-bottom: 5%;
@@ -74,12 +75,12 @@ li{
   margin-bottom: 5%;
   padding: 7% 5%;
   border: none;
-  color: #2f323e;
+  color: #e52c2b;
 }
 
 #sidebar button:hover{
   border: 1px solid #fff;
-  background-color: #2f323e;
+  background-color: #e52c2b;
   color: #fff;
 }
 
@@ -104,7 +105,7 @@ li{
 
 
 button{
-  background-color: #edf1f5;
+  background-color: #ff00001a;
   margin-left: 5%;
 }
 
@@ -119,9 +120,9 @@ button{
 } */
 
 .profile{
-  background-color: #2f323e;
+  background-color: #e52c2b;
   justify-content: end;
-  /* margin-left: 1%; */
+  margin-left: 0;
 }
 
 .profile img{
@@ -153,6 +154,7 @@ i{
 
 #tableau{
   margin-left: 5px;
+  width: 99%;
 }
 
 
