@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin-Dashboard</title>
+    <!-- Bootstrap CSS and Icon Link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom CSS Link -->
+    <link rel="stylesheet" href="adminDashboard.css">
+</head>
+
+<body>
+    <div class="container-fluid d-flex">
+        <section id="sidebar">
+            <h1>Belle <br> Gueule</h1>
+            <ul class="">
+                <a href="adminDashboard.html"><i class="bi bi-house-fill"></i>Accueil</a>
+                <a href="listeUtilisateur.html"><i class="bi bi-person-fill"></i>Liste des Utilisateurs</a>
+                <a href="product.html"><i class="bi bi-bag-fill"></i>Ajout des Articles</a>
+                <a href="#"><i class="bi bi-tags-fill"></i>Ajout des Catégories</a>
+            </ul>
+            <button>Sign Out</button>
+        </section>
+        <section id="dashboard">
+            <div class="row d-flex  w-100 profile py-2">
+                <img src="images/images.jpg" alt="avatar">
+                <h6>Admin</h6>
+            </div>
+            <!-- ==========================FIN SIDEBAR SECTION=========================================== -->
+
+            <!-- ==========================TABPANE SECTION=============================================== -->
+            <div class="col-9 tabpane p-0">
+                <div class="tab-content" id="nav-tabContent">
+                    <!-- ++++++++++++++++++++++++++DASHBOARD SECTION+++++++++++++++++++++++++++++++++++++++++++++ -->
+                    <div class="tab-pane fade show active" id="list-home" role="tabpanel"
+                        aria-labelledby="list-home-list">
+                        <section id="dashboard">
+                            <div class="row d-flex position-relative mx-0">
+                                <div class="card text-center v1">
+                                    <div class="head-dash position-absolute top-0 start-1">
+                                        <h5 class="text-center p-3">Nombres Clients</h5>
+                                    </div>
+                                    <div class="footer-dash position-absolute bottom-0 end-0">
+                                        <h3 id="nombre"> </h3>
+                                    </div>
+                                </div>
+                                <div class="card text-center v2">
+                                    <div class="head-dash position-absolute top-0 start-1">
+                                        <h5 class="text-center p-3">Nombres Articles</h5>
+                                    </div>
+                                    <div class="footer-dash position-absolute bottom-0 end-0">
+                                        <h3></h3>
+                                    </div>
+                                </div>
+                                <div class="card v4">
+                                    <div class="head-dash position-absolute top-0 start-1">
+                                        <h5 class="text-center p-3">Nombres Admin</h5>
+                                    </div>
+                                    <div class="footer-dash position-absolute bottom-0 end-0">
+                                        <h3 id="users">
+
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="card text-center v3">
+                                    <div class="head-dash position-absolute top-0 start-1">
+                                        <h5 class="text-center p-3"><a href="index.html">Voir tout les produit</a></h5>
+                                    </div>
+                                    <div class="footer-dash position-absolute bottom-0 end-0">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <!-- ++++++++++++++++++++++++++FIN DASHBOARD SECTION+++++++++++++++++++++++++++++++++++++++++ -->
+
+                    <!-- ++++++++++++++++++++++++++AJOUT CATEGORIE SECTION+++++++++++++++++++++++++++++++++++++++ -->
+
+                    <a href="ajoutproduit.html"><i class="fa-solid fa-arrow-right-long"></i>
+                        <div class="tab-pane fade ms-5" id="list-categories" role="tabpanel"
+                            aria-labelledby="list-categories-list">
+                            <input type="text" placeholder="Nom de la Categorie" id="new-category">
+                            <button type="button" class="btn btn-primary" id="addArticles">Ajouter
+                                <i class="fa fa-add"></i></h1>
+                            </button>
+                            <div class="catergorie" id="CategorieAdd"></div>
+                        </div>
+                    </a>
+                    <!-- ++++++++++++++++++++++++++FIN AJOUT CATEGORIE SECTION+++++++++++++++++++++++++++++++++++ -->
+
+                    <!-- +++++++++++++++++++++++++++AJOUT ARTICLES SECTION++++++++++++++++++++++++++++++++++++++  -->
+
+
+
+                    <br><br>
+                    <!-- ++++++++++++++++++++++++++ Table ++++++++++++++++++++++++++++++++++++++++++++++++++++++  -->
+                    <!-- <table class="table table-image">
+                                <thead class="thead-light">
+                                    <tr class="text-center">
+                                        <th class="col-2">Models</th>
+                                        <th class="col-2">Nom</th>
+                                        <th class="col-2">Taille</th>
+                                        <th class="col-2">Prix (CFA)</th>
+                                        <th class="col-2">Actions</th>
+                                    </tr>
+                                </thead>  -->
+                    <!-- +++++++++++++++++++++++++++Table body with the list of products+++++++++++++++++++++++++ -->
+                    <!-- <tbody id="productList" class="text-light">
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div> -->
+
+
+                    </a>
+                    <!-- +++++++++++++++++++++++++++FIN AJOUT ARTICLES SECTION++++++++++++++++++++++++++++++++++  -->
+
+                    <!-- +++++++++++++++++++++++++++AJOUT CLIENTS SECTION++++++++++++++++++++++++++++++++++++++++ -->
+                    <div class="tab-pane fade ms-5" id="list-clients" role="tabpanel"
+                        aria-labelledby="list-clients-list">
+                        <!-- Tableau Client -->
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Prenom</th>
+                                    <th scope="col">Nom</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Mot de passe</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                    <td>@fat</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td>Larry the Bird</td>
+                                    <td>@twitter</td>
+                                    <td>@twitter</td>
+                                    <td>3</td>
+                                    <td>3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- +++++++++++++++++++++++++++FIN AJOUT CLIENTS SECTION++++++++++++++++++++++++++++++++++++ -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <!-- Bootstrap JS link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script type="module" src="adminDashboard.js"></script>
+
+
+</body>
+
+</html>

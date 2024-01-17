@@ -1,0 +1,57 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.sandale {
+    background-image: url("https://tayeur.com/wp-content/uploads/2022/07/Frame-17-3.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+}
+
+.titre h1 {
+    font-size: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 180px;
+}
+
+@media only screen and (max-width: 768px) {
+    .titre h1 {
+        font-size: 40px;
+        padding-top: 100px;
+    }
+    body {
+        width: 70%;
+        margin: auto;
+        padding: 0;
+    }
+    .navbar-nav {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        box-sizing:border-box;
+    }
+    .navbar-nav .nav-item {
+        width: 100%;
+        display: block;
+    }
+}
+
+
+@media only screen and (max-width: 480px) {
+    .titre h1 {
+        font-size: 30px;
+        padding-top: 80px;
+    }
+}

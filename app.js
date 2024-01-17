@@ -1,125 +1,436 @@
 // Variables
-// Fonction Voir produit et AJOUT dans le Panier
- let container = document.querySelector(".pro");
- let text = document.querySelector(".text");
-let header = document.querySelector(".bg");
- let panier = document.querySelector(".panier");
+let container = document.querySelector(".pro");
+let categorieFemme = document.querySelector(".femme");
+let sacHomme = document.querySelector(".homme");
+let hiver = document.querySelector(".hiver");
+let panier = document.querySelector(".panier");
+let bag = document.querySelector(".bag");
+// bag.addEventListener("mouseover", function () {
+//   alert("hover");
+// });
+let span = document.querySelector("span");
+let main = document.querySelector(".main");
+let carousel = document.querySelector(".carousel");
+let title = document.querySelector(".title");
+// let modalBody = document.querySelector(".modal-body");
+let modalImg = document.querySelector(".img");
+let product = document.querySelector(".product");
+let quantity = document.querySelector(".quantity");
+let price = document.querySelector(".price");
+let total = document.querySelector(".total");
+let Price = document.querySelector(".Price");
 const tabProduct = [
   {
     id: 1,
-    product: "roberouge.jpg",
-    title: "Robe de soirée",
-    price: 124.99,
+    product: "p1.jpg",
   },
   {
     id: 2,
-    product: "redDress.jpg",
-    title: "Robe de soirée",
-    price: 299.99,
+    product: "p2.jpg",
   },
   {
     id: 3,
-    product: "yellowDress.jpg",
-    title: "Robe de soirée",
-    price: 179.99,
+    product: "lacet.jpg",
   },
   {
     id: 4,
-    product: "soie.jpg",
-    title: "Robe de soirée",
-    price: 169.99,
-  },
-  {
-    id: 5,
-    product: "dress.jpg",
-    title: "Robe de soirée",
-    price: 180.99,
-  },
-  {
-    id: 6,
-    product: "robemarron.jpg",
-    title: "Robe de soirée",
-    price: 110.99,
+    product: "p4.jpg",
   },
 ];
 
-container.innerHTML = "";
 let getProduct = tabProduct.map(
   (p) =>
-    (container.innerHTML += `<div class="mt-4">
-              <div class="">
-                <div class="card border-0 ms-3 carte ">
-                    <img style="height: 480px;" src="images/${p.product}" id="tt" class="shadow" alt="">
-                    <div class="card-body">
-                        <h4 class="clothes text-white fw-bold"></h4>
-                        <div class="test d-flex mt-2 justify-content-center align-items-center">
-                         <button id="${p.id}">Voir le produit</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          </div>`)
+    (container.innerHTML += `
+    <div class="col-lg-3">
+        <img src="images/${p.product}" alt="" class="w-100">
+    
+    </div>
+    `)
+  // Au click ramène vers la page boutique
 );
-// let urlComplet = window.location.pathname;
-let buttons = document.querySelectorAll(".card button");
-let cards = document.querySelectorAll(".carte");
-console.log(cards);
-for (i = 0; i < tabProduct.length; i++) {
-  for (i = 0; i < buttons.length; i++) {
-    let test = tabProduct[i];
-    let btn = buttons[i];
-    buttons[i].addEventListener("click", function () {
-      container.style.backgroundColor = "#303952";
-      container.style.padding = "40px";
-      // urlComplet = "/ajout.html";
+//
+// CATEGORIE FEMME
+const tabFemme = [
+  {
+    id: 1,
+    img: "sac1.jpeg",
+  },
+  {
+    id: 2,
+    img: "sac2.jpeg",
+  },
+  {
+    id: 3,
+    img: "sac3.jpeg",
+  },
+  {
+    id: 4,
+    img: "sac4.jpeg",
+  },
+];
+let getProductWomen = tabFemme.map((f) => {
+  categorieFemme.innerHTML += `
+  <div class="col-lg-3">
+      <img src="images/${f.img}" alt="" class="w-100">
+  </div>
+  `;
+});
+// SAC HOMME
+const tabHomme = [
+  {
+    id: 1,
+    img: "sachomme1.jpeg",
+  },
+  {
+    id: 2,
+    img: "sachomme2.jpeg",
+  },
+  {
+    id: 3,
+    img: "sachomme3.jpeg",
+  },
+  {
+    id: 4,
+    img: "sachomme4.jpeg",
+  },
+];
+let getProductMen = tabHomme.map((h) => {
+  sacHomme.innerHTML += `
+  <div class="col-lg-3">
+      <img src="images/${h.img}" alt="" class="w-100">
+  </div>
+  `;
+});
+// COLLECTION HIVER
+const tabHiver = [
+  {
+    id: 1,
+    img: "pull1.jpeg",
+  },
+  {
+    id: 2,
+    img: "pull2.png",
+  },
+  {
+    id: 3,
+    img: "pull5.png",
+  },
+  {
+    id: 4,
+    img: "pull4.jpeg",
+  },
+];
+let getProductHiver = tabHiver.map((hiver) => {
+  hiver.innerHTML += `
+  <div class="col-lg-3">
+    <img src="images/${hiver.img}" alt="" class="w-100">
+  </div>
+  `;
+});
+// Eventail
+let eventail = document.querySelector(".eventail");
+const tabEventail = [
+  {
+    id: 1,
+    img: "eventail1.jpg",
+    title: "Eventail",
+    title2: "Eventail beige",
+    prix: 3000,
+  },
+  {
+    id: 2,
+    img: "eventail2.jpg",
+    title: "Eventail",
+    title2: "Eventail bleu",
+    prix: 3000,
+  },
+  {
+    id: 3,
+    img: "eventail3.jpg",
+    title: "Eventail",
+    title2: "Eventail bleu de nuit",
+    prix: 3000,
+  },
+  {
+    id: 4,
+    img: "eventail4.jpg",
+    title: "Eventail",
+    title2: "Eventail jaune",
+    prix: 3000,
+  },
+];
+let getEventail = tabEventail.map((e) => {
+  eventail.innerHTML += `
+  <div class="col-lg-3">
+    <img src="images/${e.img}" alt="" class="w-100 imgEventail">
+    <p class="text-secondary">${e.title}</p>
+    <p>${e.title2}</p>
+    <p>${e.prix} FCFA</p>
+  </div>
+  `;
+});
+
+// MEILLEURES VENTES
+let bestSellers = document.querySelector(".bestsellers");
+const tabBestSellers = [
+  {
+    id: 1,
+    img: "talon2.jpeg",
+    title: "Talon long",
+    title2: "meilleure vente",
+    prix: 10000,
+  },
+  {
+    id: 2,
+    img: "talon3.webp",
+    title: "Talon long beige",
+    title2: "meilleure vente",
+    prix: 8000,
+  },
+  {
+    id: 3,
+    img: "talon2.jpeg",
+    title: "Talon long lacet noir",
+    title2: "meilleure vente",
+    prix: 10000,
+  },
+  {
+    id: 4,
+    img: "talon1.webp",
+    title: "Talon long simple",
+    title2: "meilleure vente",
+    prix: 10000,
+  },
+];
+let getBS = tabBestSellers.map((b) => {
+  bestSellers.innerHTML += `
+  <div class="col-lg-3 p-0">
+    <img src="images/${b.img}" alt="" class="w-100 imgBestSellers">
+    <p class="text-secondary">${b.title}</p>
+    <p>${b.title2}</p>
+    <p>${b.prix} FCFA</p>
+  </div>
+  `;
+});
+let b2 = document.querySelector(".b2");
+const tabB2 = [
+  {
+    id: 1,
+    img: "nuepied1.gif",
+  },
+  {
+    id: 2,
+    img: "nuepied1.gif",
+  },
+  {
+    id: 3,
+    img: "nuepied1.gif",
+  },
+  {
+    id: 4,
+    img: "nuepied1.gif",
+  },
+];
+let getB2 = tabB2.map((b2) => {
+  b2.innerHTML += `
+<div class="col-lg-3 p-0">
+<img src="images/${b2.img}" alt="" class="w-100">
+</div>
+`;
+});
+let autresProduits = document.querySelector(".autres");
+let tabOthers = [
+  {
+    id: 1,
+    img: "sacmain.png",
+    title: "Sac à main",
+    title2: "autres produits",
+    prix: 10000,
+  },
+  {
+    id: 2,
+    img: "accessoire.png",
+    title: "Accessoire africain",
+    title2: "autres produits",
+    prix: 4000,
+  },
+  {
+    id: 3,
+    img: "pochette.png",
+    title: "Pochette unisexe",
+    title2: "autres produits",
+    prix: 5000,
+  },
+];
+let getOthers = tabOthers.map((o) => {
+  autresProduits.innerHTML += `
+  <div class="col-lg-3">
+<img src="images/${o.img}" alt="" class="w-100 othersImg">
+<p class="text-secondary">${o.title}</p>
+<p>${o.title2}</p>
+<p>${o.prix} FCFA</p>
+</div>
+  `;
+});
+// LOGIC EVENTAIL
+let imgEventail = document.querySelectorAll(".imgEventail");
+console.log(imgEventail);
+// let p = 0;
+for (i = 0; i < tabEventail.length; i++) {
+  for (i = 0; i < imgEventail.length; i++) {
+    let test = tabEventail[i];
+    let btn = imgEventail[i];
+    imgEventail[i].addEventListener("click", function () {
+      carousel.innerHTML = `<img src="images/panier.png">`;
+      title.innerHTML = "Panier";
+      main.innerHTML = `
+      <div class="container mt-5">
+      <div class="row justify-content-center">
+      <div class="col">
+      <img src="images/${test.img}">
+      </div>
+      <div class="col">
+      <h5>${test.title2}</h5>
+      <h6  class="text-secondary">${test.prix} FCFA</h6>
+      <p>Catégorie: ${test.title}</p>
+      <button class="mt-5 border-0 p-1 btnAddeventail">Ajouter au panier</button>
+      </div>
+      </div>
+      </div>
+      `;
+      let m = 0;
+      let btnAddEv = document.querySelectorAll(".btnAddeventail");
+      for (i = 0; i < btnAddEv.length; i++) {
+        btnAddEv[i].addEventListener("click", function () {
+          let incre = m++;
+          panier.innerHTML = incre;
+          quantity.innerHTML = `<p class="text-secondary">Quantity: ${incre}</p>`;
+          price.innerHTML = `<p>${test.prix}FCFA</p>`;
+          let prixFinal = test.prix * incre;
+          total.innerHTML = `Total:`;
+          Price.innerHTML = `${prixFinal} FCFA`;
+        });
+      }
       console.log(test);
-      header.innerHTML = "";
-      text.innerHTML = "";
-      container.innerHTML = `<div class="row">
-      <div class="col-lg-6">
-      <img src="images/${test.product}" class="me-5 w-100">
-      </div>
-      <div class="col-lg-6">
-        <h1 class="text-warning">${test.title}</h1>
-        <p>Sold by: Fabi's shop</p>
-        <p>
-        <i class="fa fa-star text-warning" aria-hidden="true"></i>
-        <i class="fa fa-star  text-warning" aria-hidden="true"></i>
-        <i class="fa fa-star  text-warning" aria-hidden="true"></i>
-        <i class="fa fa-star-half-o  text-warning" aria-hidden="true"></i>
-        <i class="fa fa-star-o text-secondary" aria-hidden="true">(200)</i> 
-        </p>
-        
-      <div class="row d-flex align-items-center">
-          <div class="col">
-          <label class="text-secondary">Size: </label>
-          </div>
-          <div class="col">
-          <select name="" id="" class="p-1 border border-secondary rounded" style="width: 120px;">
-            <option value="">Select size</option>
-            <option value="S">S</option>
-            <option value="M">M</option>
-            <option value="L">L</option>
-        </select>
-        </div>
-      </div>
-
-     
-      <button class="w-100 mt-5 border-0 btnCart">Add to cart</button>
-      </div>
-     
-      </div>
-      </div>`;
-
-      let btnAdd = document.querySelector(".btnCart");
-      let n = 1;
-
-      //
-      btnAdd.addEventListener("click", function () {
-        panier.innerHTML = n++;
-      });
+      let incr = p++;
+      panier.innerHTML = incr;
+      // Ajout au panier
+      modalImg.innerHTML = `<img src="images/${test.img}" style="width:80px">`;
+      product.innerHTML = test.title;
+      quantity.innerHTML = `<p class="text-secondary">Quantity: ${incr}</p>`;
+      price.innerHTML = `<p>${test.prix}FCFA</p>`;
+      let prixFinal = test.prix * incr;
+      total.innerHTML = `Total:`;
+      Price.innerHTML = `${prixFinal} FCFA`;
     });
+    // Finaliser la commande
   }
 }
+// LOGIC BESTSELLERS
+let imgBestSellers = document.querySelectorAll(".imgBestSellers");
+for (i = 0; i < tabBestSellers.length; i++) {
+  for (i = 0; i < imgBestSellers.length; i++) {
+    let test = tabBestSellers[i];
+    let btn = imgBestSellers[i];
+    imgBestSellers[i].addEventListener("click", function () {
+      console.log(test);
+      carousel.innerHTML = `<img src="images/panier.png">`;
+      main.innerHTML = `
+      <div class="container mt-5">
+      <div class="row justify-content-center">
+      <div class="col">
+      <img src="images/${test.img}">
+      </div>
+      <div class="col">
+      <h5>${test.title2}</h5>
+      <h6  class="text-secondary">${test.prix} FCFA</h6>
+      <p>Catégorie: ${test.title}</p>
+      <button class="mt-5 border-0 p-1 add">Ajouter au panier</button>
+      </div>
+      </div>
+      </div>
+      `;
+      //       // PAGE VOIR PRODUIT
+      let n = 0;
+      let btnAdd = document.querySelectorAll(".add");
+      console.log(btnAdd);
+      for (i = 0; i < btnAdd.length; i++) {
+        btnAdd[i].addEventListener("click", function () {
+          let inc = n++;
+          panier.innerHTML = inc;
+          quantity.innerHTML = `<p class="text-secondary">Quantity: ${inc}</p>`;
+          price.innerHTML = `<p>${test.prix}FCFA</p>`;
+          let prixFinal = test.prix * inc;
+          total.innerHTML = `Total:`;
+          Price.innerHTML = `${prixFinal} FCFA`;
+        });
+      }
+      //       // END
 
-// console.log(urlComplet);
+      //       // Ajout au panier
+      let incr = p++;
+      panier.innerHTML = incr;
+      modalImg.innerHTML = `<img src="images/${test.img}" style="width:80px">`;
+      product.innerHTML = test.title;
+      quantity.innerHTML = `<p class="text-secondary">Quantity: ${incr}</p>`;
+      price.innerHTML = `<p>${test.prix}FCFA</p>`;
+      let prixFinal = test.prix * incr;
+      total.innerHTML = `Total:`;
+      Price.innerHTML = `${prixFinal} FCFA`;
+    });
+    //     // Finaliser la commande
+  }
+}
+// LOGIC AUTRES PRODUITS
+let othersProducts = document.querySelectorAll(".othersImg");
+console.log(othersProducts);
+for (i = 0; i < tabOthers.length; i++) {
+  for (i = 0; i < othersProducts.length; i++) {
+    let test = tabOthers[i];
+    let btn = othersProducts[i];
+    othersProducts[i].addEventListener("click", function () {
+      console.log(test);
+      carousel.innerHTML = "";
+      main.innerHTML = `
+      <div class="container mt-5">
+      <div class="row justify-content-center align-items-center">
+      <div class="col">
+      <img src="images/${test.img}">
+      </div>
+      <div class="col">
+      <h5>${test.title}</h5>
+      <h6  class="text-secondary">${test.prix} FCFA</h6>
+      <p>Catégorie: ${test.title2}</p>
+      <button class="mt-5 border-0 p-1 btnOthers">Ajouter au panier</button>
+      </div>
+      </div>
+      </div>
+      `;
+      //
+      let o = 0;
+      let btnOthers = document.querySelectorAll(".btnOthers");
+      for (i = 0; i < btnOthers.length; i++) {
+        btnOthers[i].addEventListener("click", function () {
+          let increm = o++;
+          panier.innerHTML = increm;
+          quantity.innerHTML = `<p class="text-secondary">Quantity: ${increm}</p>`;
+          price.innerHTML = `<p>${test.prix}FCFA</p>`;
+          let prixFinal = test.prix * increm;
+          total.innerHTML = `Total:`;
+          Price.innerHTML = `${prixFinal} FCFA`;
+        });
+      }
+      let incr = p++;
+      panier.innerHTML = incr;
+      // Ajout au panier
+      modalImg.innerHTML = `<img src="images/${test.img}" style="width:80px">`;
+      product.innerHTML = test.title;
+      quantity.innerHTML = `<p class="text-secondary">Quantity: ${incr}</p>`;
+      price.innerHTML = `<p>${test.prix}FCFA</p>`;
+      let prixFinal = test.prix * incr;
+      total.innerHTML = `Total:`;
+      Price.innerHTML = `${prixFinal} FCFA`;
+    });
+    // Finaliser la commande
+  }
+}
