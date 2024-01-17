@@ -5,6 +5,11 @@
     box-sizing: border-box;
     font-family: 'Montserrat' , sans-serif;
 }
+img{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
 body{
     background-color: #c9d6c9;
     background: linear-gradient(to right, #e2e2e2,#c9d6ff);
