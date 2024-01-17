@@ -5,6 +5,11 @@
     box-sizing: border-box;
     font-family: 'Montserrat' , sans-serif;
 }
+img{
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
 body{
     background-color: #c9d6c9;
     background: linear-gradient(to right, #e2e2e2,#c9d6ff);
@@ -41,7 +46,7 @@ margin: 20px 0;
     margin:15px  0 10px;  
 }
 .container button{
-    background-color: #512da8;
+    background-color: #c0392b;
     color: #fff;
     font-size: 12px;
     padding: 10px 45px;
@@ -147,9 +152,9 @@ margin: 20px 0;
     border-radius: 0 150px 100px 0;
 }
  .toggle{
-    background-color: #512da8;
+    background-color: #c0392b;
     height: 100%;
-    background-color:linear-gradient(to right, #5c6bc0, #512da8);
+    background-color:linear-gradient(to right, #5c6bc0, #c0392b);
     color: #fff;
     position: relative;
     left: -100%;
@@ -211,7 +216,7 @@ margin: 20px 0;
     outline: none;
 }
 .pword  button{
-    background-color: #512da8;
+    background-color: #c0392b;
     color: #fff;
     font-size: 12px;
     width: 100%;
@@ -223,4 +228,29 @@ margin: 20px 0;
     text-transform: uppercase;
     margin-top:10px;
     cursor: pointer;  
+}
+.check{
+    display: flex;
+}
+.check label{
+    font-size: 15px;
+}
+.check .fa-info{
+    font-size: 15px !important;
+    height: 15px !important;
+    width: 15px !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+}
+.check .fa-solid {
+    font-size: 25px;
+    height: 30px;
+    width: 30px;
+    margin-left: 50px;
+    margin-top: 10px;
+    color: #c0392b;
+}
+.checkbox{
+    height: 30px;
+    accent-color: #c0392b;
 }

@@ -10,39 +10,34 @@
 </head>
 
 <body>
-    <!-- ===============================FORMILAIRE D'INSCRIPTION================================= -->
+    <!-- ===============================FORMULAIRE D'INSCRIPTION================================= -->
 
     <div class="container" id="container">
         <div class="form-container sign-in">
             <form action="" id="loginForm">
-                <h1>Sign In</h1>
-            <!-- <img src="Logo.png" alt=""> -->
-            <div class="social-icons">
-                <a href="#"><i class="fa-brands fa-google-plus-g"></i></a>
-                  <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                  <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
-                  <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-              </div>
-                    <input type="email" class="form-control" id="email2" placeholder="Your email adress">
-                    <input type="password" class="form-control" id="password2" placeholder="Your password"> 
-                    <a href="ForgetPassword.html">Forget You Password?</a>
+                <img src="Logo.png" alt="">
+                <h1>Se connecter</h1>
+                <input type="email" class="form-control" id="email2" placeholder="Tapez votre email">
+                <input type="password" class="form-control" id="password2" placeholder="Tapez votre mot de passe">
+                <a href="ForgetPassword.html">Mot de passe oublié?</a>
+                <div class="check">
+                    <label for="checkbox">
+                        <i class="fa-solid fa-info"></i>
+                        Pour vous connecter en tant que Admin, veuillez à checker</label>
+                    <i class="fa-solid fa-arrow-right"></i>
+                    <input type="checkbox" id="" class="checkbox">
+                </div>
                 <button type="submit">Continuer</button>
             </form>
         </div>
         <div class="form-container sign-up">
             <form action="" id="registerForm">
-                <h1 class="mb-3">Create Account</h1>
-                <!-- <img src="Logo.png" alt=""> -->
-                <div class="social-icons">
-                  <a href="#"><i class="fa-brands fa-google-plus-g"></i></a>
-                  <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                  <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
-                  <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-              </div>
-                    <input type="text" class="form-control" id="fnameInp" placeholder="Enter Your fisrtname">
-                    <input type="text" class="form-control" id="lnameInp" placeholder="Enter Your lastname">
-                    <input type="email" class="form-control" id="email" placeholder="Enter Your email adress">
-                    <input type="password" class="form-control" id="password" placeholder="Create your password">
+                <img src="Logo.png" alt="">
+                <h1 class="mb-3">S'inscrire</h1>
+                <input type="text" class="form-control" id="fnameInp" placeholder="Tapez votre prénom">
+                <input type="text" class="form-control" id="lnameInp" placeholder="Tapez votre nom">
+                <input type="email" class="form-control" id="email" placeholder="Tapez votre email">
+                <input type="password" class="form-control" id="password" placeholder="Créez votre mot de passe">
 
                 <button type="submit">Continuer</button>
             </form>
@@ -50,14 +45,15 @@
         <div class="toggle-container">
             <div class="toggle">
                 <div class="toggle-panel toggle-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Register with your personal detail to use all of site features</p>
-                    <button class="hidden" id="register">Sin Up</button>
+                    <h1>Bonjour, cher ami</h1>
+                    <p>Enregistrez vous avec vos coordonnées personnelles pour utiliser toutes les fonctionnalités du
+                        site</p>
+                    <button class="hidden" id="register">S'enregistrer</button>
                 </div>
                 <div class="toggle-panel toggle-left">
-                    <h1>Welcome Back!</h1>
-                    <p>Enter your personal detail to use all of site features</p>
-                    <button class="hidden" id="login">Sin In</button>
+                    <h1>Bienvenue!</h1>
+                    <p>Entrez vos coordonnées personnelles pour utiliser toutes les fonctionnalités du site</p>
+                    <button class="hidden" id="login">Se connecter</button>
                 </div>
             </div>
         </div>
@@ -67,7 +63,7 @@
 
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
     import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 
     const firebaseConfig = {
@@ -96,43 +92,51 @@
     let Password2 = document.getElementById("password2")
     let forgetpassword = document.getElementById("forgetpassword")
 
-         // function pour la connexion 
+    // function pour la connexion 
 
-         let signInUser = evt => {
-            evt.preventDefault();
-            signInWithEmailAndPassword(auth, Email2.value=Email.value,Password2.value=Password.value)
-                .then(async (credentials) => {
-                    var ref = doc(db,"UserAutList", credentials.user.uid);
-                    const docSnap = await getDoc(ref);
+    let signInUser = evt => {
+        evt.preventDefault();
+        signInWithEmailAndPassword(auth, Email.value = Email2.value, Password.value = Password2.value)
+            .then(async (credentials) => {
+                var ref = doc(db, "UserAutList", credentials.user.uid);
+                const docSnap = await getDoc(ref);
 
-                    if (docSnap.exists()) {
-                        sessionStorage.setItem("user-info", JSON.stringify({
-                            firstname: docSnap.data().firstname,
-                            lastname: docSnap.data().lastname,
-                            email: docSnap.data().email
-                        }))
-                        sessionStorage.setItem("user-creds", JSON.stringify(credentials.user));
-                        window.location.href = 'test.html'
+                if (docSnap.exists()) {
+                    sessionStorage.setItem("user-info", JSON.stringify({
+                        firstname: docSnap.data().firstname,
+                        lastname: docSnap.data().lastname,
+                        email: docSnap.data().email
+                    }))
+                    sessionStorage.setItem("user-creds", JSON.stringify(credentials.user));
+
+
+                    var checkbox = document.querySelector("input[type=checkbox]")
+                    if (checkbox.checked) {
+                        checkbox.checked = window.location.href = 'adminDashboard.html'
+                    } else {
+                        checkbox.checked = window.location.href = 'index.html'
                     }
-                })
-                
-            .catch ((error) => {
+
+                }
+            })
+
+            .catch((error) => {
                 alert(error.message);
                 console.log(error.code);
                 console.log(error.message);
             })
-        }
-        
-        loginForm.addEventListener('submit', signInUser);
 
-        // function pour la création
+    }
+    loginForm.addEventListener('submit', signInUser);
 
-        let RegisterUser = evt => {
+    // function pour la création
+
+    let RegisterUser = evt => {
         evt.preventDefault();
 
         createUserWithEmailAndPassword(auth, Email.value, Password.value)
             .then(async (credentials) => {
-                var ref = doc (db,"UserAutList", credentials.user.uid); 
+                var ref = doc(db, "UserAutList", credentials.user.uid);
                 await setDoc(ref, {
                     firstname: FnameInp.value,
                     lastname: LnameInp.value,
@@ -145,17 +149,17 @@
                 console.log(error.message);
             })
 
-            if (registerForm=true) {
+        if (registerForm = true) {
             window.alert("Compte créer avec succèes, Merci")
             setTimeout("window.location.href = 'SignIn.html'", 5000)
-            }else{
-                
+        } else {
+
             window.alert("Compte non créer")
-            }
-          
         }
 
-        registerForm.addEventListener('submit', RegisterUser);
+    }
+
+    registerForm.addEventListener('submit', RegisterUser);
 
 </script>
 <script src="Authentification.js"></script>

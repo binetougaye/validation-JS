@@ -5,9 +5,7 @@ let sacHomme = document.querySelector(".homme");
 let hiver = document.querySelector(".hiver");
 let panier = document.querySelector(".panier");
 let bag = document.querySelector(".bag");
-// bag.addEventListener("mouseover", function () {
-//   alert("hover");
-// });
+
 let span = document.querySelector("span");
 let main = document.querySelector(".main");
 let carousel = document.querySelector(".carousel");
