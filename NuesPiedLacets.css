@@ -64,6 +64,7 @@
 .largeur {
     width: 620px;
     border-radius: 10px;
+
 }
 
 .option:hover {
@@ -74,4 +75,51 @@
 .fa-motorcycle {
     font-size: 30px;
 
+}
+
+.Bgfinal{
+    background-image: url("ImgNues/Frame-13.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px; 
+    position: relative; 
+    width: 100%;
+
+}
+.pay h1 {
+    font-size: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+@media screen and (max-width: 768px){
+
+    .formlaire {
+      
+        width: 100%;
+        margin: auto;
+    
+    }
+    
+    .place {
+        width: 100%;
+       
+    }
+    
+    .prenom {
+        width: 100%;
+        
+    }
+    
+    .largeur {
+        width: 100%;
+       
+    
+    }
+    
 }
