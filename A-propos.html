@@ -28,7 +28,7 @@
 <body>
 
   <!-- +++++++++++++++++++++++++   Navbar   +++++++++++++++++++++++++++++ -->
-  <nav class="navbar navbar-expand-lg bg-transparent">
+  <nav class="navbar navbar-expand-lg  ">
     <div class="container-fluid">
       <img src="images/Logo-tayeur.png" alt="" class="logo">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -40,18 +40,8 @@
           <li class="nav-item">
             <a class="nav-link active fw-bold" id="active" aria-current="page" href="index.html">Accueil</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Talons
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="talon-long.html">Talon long</a></li>
-              <li><a class="dropdown-item" href="talon-simple.html">Talon simple</a></li>
-
-            </ul>
-          </li>
           <li class="nav-item">
-            <a class="nav-link fw-bold" href="talons lacets.html">Minis talons</a>
+            <a class="nav-link fw-bold" href="nue-pieds-simple.html">Nues pieds simples</a>
           </li>
           <li class="nav-item">
             <a class="nav-link fw-bold" href="nuePiedLacets.html">Nues pieds</a>
@@ -60,16 +50,58 @@
             <a class="nav-link fw-bold" href="sandale.html">Sandales</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fw-bold" href="A propos.html">A propos</a>
+            <a class="nav-link fw-bold" href="A-propos.html">A propos</a>
           </li>
           <!-- <li class="nav-item">
-                  <a class="nav-link fw-bold">Autres produits</a>
-              </li> -->
+                          <a class="nav-link fw-bold">Autres produits</a>
+                      </li> -->
           <li class="nav-item">
             <a class="nav-link fw-bold" href="SignIn.html"><i class="bi bi-person"></i></a>
           </li>
-
-
+          <li class="nav-item bag">
+            <a class="nav-link"><i data-bs-toggle="modal" data-bs-target="#exampleModal" class="bi bi-bag"></i>
+            </a>
+            <p class="panier text-white d-flex justify-content-center align-items-center fw-bold">0</p>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+  
+                    <div class="row">
+                      <div class="col img">
+  
+                      </div>
+                      <div class="col">
+                        <div class="product"></div>
+                        <div class="quantity">
+                        </div>
+                        <div class="price"></div>
+  
+                      </div>
+  
+  
+                    </div>
+                    <hr>
+                    <div class="row justify-content-between">
+                      <div class="col total">
+  
+                      </div>
+                      <div class="col Price text-danger text-end"></div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+  
+                    <button type="button" class="btnPanier w-100 border-0 p-1">Voir ton
+                      panier</button>
+                  </div>
+                </div>
+              </div>
+            </div>
       </div>
       </li>
       </ul>
