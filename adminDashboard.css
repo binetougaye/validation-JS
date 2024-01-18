@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #ff00001a;
+  background-color: rgba(128, 128, 128, 0.25);
 }
 
 /*-------------------- SIDEBAR --------------------*/
@@ -12,35 +12,35 @@ body {
 
 h1 {
   font-style: italic;
-  color: #e52c2b;
+  color: #fff;
   margin-left: 4%;
 }
 
 a {
   text-decoration: none;
-  background-color: #ff00001a;
-  color: #e52c2b;
+  background-color: #5b5858;
+  color: #fff;
   padding: 7% 5%;
   margin-bottom: 5%;
-  border-right: 1px solid #fff;
+  /* border-right: 1px solid #fff; */
 }
 
 a:hover {
   text-decoration: none;
-  background-color: #e52c2b;
-  color: #fff;
+  background-color: #fff;
+  color: #5b5858;
   padding: 7% 5%;
   margin-bottom: 5%;
-  border-right: 1px solid #fff;
+  /* border-right: 1px solid #5b5858; */
 }
 
 a:focus {
   text-decoration: none;
-  background-color: #e52c2b;
-  color: #fff;
+  background-color: #fff;
+  color: #5b5858;
   padding: 7% 5%;
   margin-bottom: 5%;
-  border-right: 1px solid #fff;
+  /* border-right: 1px solid #fff; */
 }
 
 
@@ -68,7 +68,7 @@ li {
 
 #sidebar {
   width: 20%;
-  background-color: #fff;
+  background-color: #5b5858;
   z-index: 1;
 }
 
@@ -76,17 +76,15 @@ li {
   margin-bottom: 5%;
   padding: 7% 5%;
   border: none;
-  color: #e52c2b;
+  color: #fff;
+  color: #5b5858;
 }
 
 #sidebar button:hover {
   border: 1px solid #fff;
-  background-color: #e52c2b;
+  background-color: #5b5858;
   color: #fff;
 }
-
-
-
 
 
 #dashboard {
@@ -96,17 +94,19 @@ li {
 
 
 #dashboard .stats {
-  margin-top: 12%;
+  margin-top: 5%;
 }
 
 #dashboard .card {
   width: 25%;
-  height: 185px;
+  height: 140px;
+  box-shadow: 0px 1px 2px 0px;
 }
 
 
 button {
-  background-color: #ff00001a;
+  background-color: #fff;
+  /* color: #5b5858; */
   margin-left: 5%;
 }
 
@@ -122,9 +122,10 @@ button {
 } */
 
 .profile {
-  background-color: #e52c2b;
+  background-color: #fff;
   justify-content: end;
   margin-left: 0;
+  box-shadow: 0 0 5px 0;
 }
 
 .profile img {
@@ -134,17 +135,37 @@ button {
 
 .profile h6 {
   width: 15%;
-  color: #fff;
+  color: #5b5858;
   font-style: italic;
   margin-top: 1%;
 }
 
 
-/* TABLEAU UTILISATEURS */
+                    /* TABLEAU UTILISATEURS */
 
 /* #dashboard>div:nth-child(2) {
   margin-left: 1%;
 } */
+
+#addUser{
+  margin-right: 5%;
+  background-color: #5b5858;
+  color: #fff;
+  padding: 1% 2%;
+  border: 1px solid #5b5858;
+  border-radius: 15px;
+  box-shadow: 0px 1px 0px 0px black;
+}
+
+#addUser:hover{
+  margin-right: 5%;
+  background-color: #fff;
+  color: #5b5858;
+  padding: 1% 2%;
+  border: 1px solid #5b5858;
+  border-radius: 15px;
+}
+
 
 #client {
   margin-top: 2%;
@@ -160,10 +181,71 @@ i {
   width: 99%;
 }
 
-
 #searchbar {
+  border-radius: 5px;
+  border: none;
+  padding: 1%;
+  box-shadow: 1px 1px 3px 0px;
   margin-left: 1%;
 }
+
+#titre {
+  color: #000;
+}
+
+#tableau th{
+  background-color: #5b5858;
+  color: #fff;
+  padding: 2%;
+}
+
+#tableau td{
+  padding: 2%;
+}
+
+#tableau .forme1{
+  border-radius: 12px 0 0 0;
+}
+#tableau .forme2{
+  border-radius: 0 12px 0 0;
+}
+
+        /* Modal */
+#exampleModalLabel{
+  color: #5b5858;
+  text-align: center;
+}
+
+.modal-content .btn{
+  margin-right: 5%;
+  background-color: #5b5858;
+  color: #fff;
+  padding: 1% 2%;
+  border: 1px solid #5b5858;
+  border-radius: 15px;
+  box-shadow: 0px 1px 0px 0px black;
+}
+
+
+.modal-content .btn:hover{
+  margin-right: 5%;
+  background-color: #fff;
+  color: #5b5858;
+  padding: 1% 2%;
+  border: 1px solid #5b5858;
+  border-radius: 15px;
+}
+
+.card{
+  border-bottom: 3px solid red;
+}
+.bi-search {
+  position: absolute;
+  top: 83px;
+  left: 211px;
+  margin-right: 0;
+}
+
 
 @media screen and (max-width: 768px) {
   .container-fluid {

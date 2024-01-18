@@ -1,8 +1,8 @@
 // Firestore
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+// import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 let user = 0;
 let tbody = document.getElementById('tbody');
@@ -69,7 +69,7 @@ const firebaseConfig = {
 // Initialize Firestore
 
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
 
@@ -89,12 +89,77 @@ function getAllDataOnce() {
             
             // recuperation nombre d'utilisateurs
             document.getElementById('client').innerHTML = utilisateurs.length
-            document.getElementById('clients').innerHTML = utilisateurs.length
             })
         .catch((error) => {
             console.error("Error getting documents: ", error);
         });
+    const userArticletRef = collection(db, 'articles');
+    getDocs(userArticletRef)
+        .then((querySnapshot) => {
+            let article = [];
+
+            querySnapshot.forEach((doc) => {
+                article.push(doc.data());
+            });
+
+            // addAllItemToTable(utilisateurs);
+
+            // recuperation nombre d'utilisateurs
+            document.getElementById('article').innerHTML = article.length
+            // document.getElementById('clients').innerHTML = utilisateurs.length
+        })
+        .catch((error) => {
+            console.error("Error getting documents: ", error);
+        });
+
+    const userCategorietRef = collection(db, 'Categories');
+    getDocs(userCategorietRef)
+        .then((querySnapshot) => {
+            let article = [];
+
+            querySnapshot.forEach((doc) => {
+                article.push(doc.data());
+            });
+
+            // addAllItemToTable(utilisateurs);
+
+            // recuperation nombre d'utilisateurs
+            document.getElementById('categorie').innerHTML = article.length
+            // document.getElementById('clients').innerHTML = utilisateurs.length
+        })
+        .catch((error) => {
+            console.error("Error getting documents: ", error);
+        });
 }
+
+
+
+    document.getElementById('formulaire').addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        let firstname = document.getElementById('firstname').value;
+        let lastname = document.getElementById('lastname').value;
+        let dates = document.getElementById('dates').value;
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+
+        try {
+            const docRef = await addDoc(collection(db, "UserAutList"), {
+                firstname: firstname,
+                lastname: lastname,
+                Date: dates,
+                email: email,
+                Password: password,
+            });
+            let idUser = docRef.id
+            console.log("Document written with ID: ", idUser);
+            alert('Bravo ca marche')
+        } catch (error) {
+            console.error("Error writing document:", error);
+        }
+    });
+
+
 
 
 window.onload = getAllDataOnce;
