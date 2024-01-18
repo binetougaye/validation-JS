@@ -61,3 +61,122 @@ function deleteCategory(index) {
    }
 }
 displayCategory();
+
+
+
+
+
+
+
+
+
+
+
+        var categories = [
+            {
+                name: "Baskets",
+            },
+            {
+                name: "Montres",
+            }
+        ];
+
+        function displayCategories() {
+            var categoryList = document.getElementById("category-list");
+
+            categories.forEach(function(category) {
+                var categoryElement = document.createElement("div");
+                categoryElement.className = "col-md-4 mb-4";
+                categoryElement.innerHTML = `
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">${category.name}</h5>
+                        </div>
+                    </div>
+                `;
+
+                categoryList.appendChild(categoryElement);
+            });
+        }
+
+        window.onload = function() {
+            displayCategories();
+            // Appeler la fonction pour afficher les catégories au chargement de la page
+        };
+
+
+
+
+
+
+
+
+
+
+
+
+        function displayCategories() {
+            var categoryList = document.getElementById("category-list");
+
+            categories.forEach(function(category) {
+                var categoryElement = document.createElement("div");
+                categoryElement.className = "col-md-4 mb-4";
+                categoryElement.innerHTML = `
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">${category.name}</h5>
+                            <button type="button" class="btn btn-primary" onclick="openProductModal('${category.name}')">Afficher Produits</button>
+                        </div>
+                    </div>
+                `;
+
+                categoryList.appendChild(categoryElement);
+            });
+        }
+
+        function openProductModal(categoryName) {
+            var category = categories.find(c => c.name === categoryName);
+
+            var modalBody = document.getElementById("productModalBody");
+            modalBody.innerHTML = ""; // Clear previous content
+
+            category.products.forEach(function(product) {
+                var productCard = document.createElement("div");
+                productCard.className = "card";
+                productCard.innerHTML = `
+                    <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                    <div class="card-body">
+                        <h5 class="card-title">${product.name}</h5>
+                        <button type="button" class="btn btn-info" onclick="editProduct('${product.name}')">Modifier</button>
+                        <button type="button" class="btn btn-danger" onclick="deleteProduct('${product.name}')">Supprimer</button>
+                    </div>
+                `;
+
+                modalBody.appendChild(productCard);
+            });
+
+            // Show the modal
+            var productModal = new bootstrap.Modal(document.getElementById('productModal'));
+            productModal.show();
+        }
+
+        function editProduct(productName) {
+            console.log("Modifier le produit:", productName);
+        }
+
+        function deleteProduct(productName) {
+            console.log("Supprimer le produit:", productName);
+        }
+
+        window.onload = function() {
+            displayCategories();
+        };
+
+
+
+
+
+
+
+
+
