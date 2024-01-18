@@ -15,7 +15,7 @@ body {
     width: 90px;
 }
 
-.navbar {}
+/* .navbar {} */
 
 #active {
     color: #e52c2b;
@@ -164,6 +164,10 @@ img {
 .btnPanier {
     background-color: #e52c2b;
     color: #fff;
+}
+
+a {
+    text-decoration: none;
 }
 
 /* .btnPanier:hover {
