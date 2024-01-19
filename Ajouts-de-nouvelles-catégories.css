@@ -1,0 +1,31 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+ 
+}
+.add{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 5px;
+  width: 150px;
+  cursor: pointer;
+  gap:10px;
+}
+.title{
+  color: grey;
+}
+.title:hover{
+  color: red;
+
+}
+
+#category-list .card{
+  width: 100%;
+  height: 400px;
+}

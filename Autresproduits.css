@@ -1,0 +1,73 @@
+.header{
+    background-image: url(assets/Frame-17-4.png);
+    height: 550px;
+    transition: 1s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+}
+.header h1{
+    padding: 250px  100px;
+    font-size: 20px;
+}
+.header nav{
+    padding: 250px  100px;
+    font-size: 20px;
+}
+.header nav .breadcrumb-item {
+    color: rgb(235, 44, 44);
+}
+.header nav a{
+    text-decoration: none;
+    color: gray;
+}
+.card{
+    border: none !important;
+    transition: 0.5 ease-in-out;
+}
+.ajout-panier-div{
+    background-color: black;
+    color: white;
+    height: 50px;
+    display: flex;
+    display: none;
+    justify-content: space-between;
+    transition: 0.5s ease-in-out;
+    animation: reverse 1s;
+
+}
+.ajout-panier-div p{
+    margin: auto 0;
+    padding: 10px;
+    height: 100%;
+    width: 80%;
+    font-size: 20px;
+    cursor: pointer;
+}
+.card:hover > .ajout-panier-div{
+    display: flex;
+    transform: translateY(-20px);
+}
+.card:hover > .card-body{
+    transform: translateY(-20px);
+}
+.ajout-panier-div .fa-solid{
+    font-size: 25px;
+    padding: 15px;
+    border-left: 1px solid white;
+}
+.ajout-panier-div .fa-solid:hover{
+    background-color: rgb(235, 44, 44);
+}
+.p-autres{
+    font-size: 13px;
+    margin-bottom: -1px;
+}
+.p-prix{
+    font-size: 15px;
+    font-weight: 500;
+}
+.card-text{
+    font-size: 15px;
+    margin-bottom: -1px;
+    font-weight: 700;
+}
