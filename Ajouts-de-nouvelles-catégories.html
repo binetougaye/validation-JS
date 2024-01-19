@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouts-de-nouvelles-catégories</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="Ajouts-de-nouvelles-catégories.css">
+</head>
+<body>
+            <div class="container mt-5">
+                <form id="category-form" class="mb-4">
+                    <div class="mb-3">
+                        <label for="categoryName" class="fw-bold">Catégories:</label>
+                        <input type="text" id="categoryName" class="form-control " required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoryProduct" class="fw-bold">Produits</label>
+                        <input type="text" id="categoryProduct" class="form-control" step="0.01" required>
+                        <select name="" id="selectArticle">
+                        </select>    
+                    </div>
+                <div class="button">
+                    <button type="submit" class="add">Ajouter</button>
+
+                </div>
+
+                </form>
+            
+                <div id="category-list" class="row"></div>
+            </div>
+        </section>
+    </div>
+    <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
+let user = 0;
+const firebaseConfig = {
+    apiKey: "AIzaSyAWpBSXZ0zYov-GkuQRl5vfiq9V6UkfsDE",
+    authDomain: "validation-js-2024.firebaseapp.com",
+    databaseURL: "https://validation-js-2024-default-rtdb.firebaseio.com",
+    projectId: "validation-js-2024",
+    storageBucket: "validation-js-2024.appspot.com",
+    messagingSenderId: "565787116440",
+    appId: "1:565787116440:web:d6eb3365dbd8c71d70a1ed",
+    measurementId: "G-E3S1WFF6H2"
+};
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+function getAllDataOnce() {
+    const userAutListRef = collection(db, 'Categories');
+    getDocs(userAutListRef)
+        .then((querySnapshot) => {
+            let utilisateurs = [];
+
+            querySnapshot.forEach((doc) => {
+                utilisateurs.push(doc.data());
+            });
+
+            document.getElementById('client').innerHTML = utilisateurs.length
+        })
+        .catch((error) => {
+            console.error("Error getting documents: ", error);
+        });
+
+    const userArticletRef = collection(db, 'category');
+    getDocs(userArticletRef)
+        .then((querySnapshot) => {
+            let article = [];
+
+            querySnapshot.forEach((doc) => {
+                article.push(doc.data());
+            });
+
+            document.getElementById('article').innerHTML = article.length
+        })
+        .catch((error) => {
+            console.error("Error getting documents: ", error);
+        });
+
+    const userCategorietRef = collection(db, 'category');
+    getDocs(userCategorietRef)
+        .then((querySnapshot) => {
+            let article = [];
+
+            querySnapshot.forEach((doc) => {
+                article.push(doc.data());
+            });
+
+            document.getElementById('categorie').innerHTML = article.length
+        })
+        .catch((error) => {
+            console.error("Error getting documents: ", error);
+        });
+}
+
+let tableau = document.getElementById('selectArticle')
+
+async function getData() {
+    const querySnapshot = await getDocs(collection(db, 'category'));
+    let article = [];
+    querySnapshot.forEach(doc => {
+        article.push(doc.data())
+    });
+    for (let i = 0; i < article.length; i++) {
+        const element = article[i];
+        tableau.innerHTML += `
+                                <option value="">${element.categoryProduct}</option>
+                            `
+        console.log(element[i]);
+    }
+    console.log(article);
+}
+getData();
+
+
+
+document.getElementById('category-form').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    let categoryName = document.getElementById('categoryName').value;
+    let categoryProduct = document.getElementById('categoryProduct').value;
+
+    try {
+        const docRef = await addDoc(collection(db, "category"), {
+            categoryName: categoryName,
+            categoryProduct: categoryProduct,
+        });
+        let idUser = docRef.id
+        console.log("Document written with ID: ", idUser);
+        alert('Bravo ca marche')
+    } catch (error) {
+        console.error("Error writing document:", error);
+    }
+});
+window.onload = getAllDataOnce;
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
