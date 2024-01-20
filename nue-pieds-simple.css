@@ -72,3 +72,10 @@
 .bloc .whatsaap i {
     color: white;
 }
+
+@media screen and (max-width: 523px) {
+    .mail {
+        width: 100%;
+    }
+
+}

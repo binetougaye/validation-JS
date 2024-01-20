@@ -128,3 +128,11 @@
     }
 
 }
+
+@media screen and (max-width: 523px) {
+
+    .mail {
+        width: 100%;
+    }
+
+}
