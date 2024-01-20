@@ -3,16 +3,25 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="NuesPiedLacets.css">
+    <link rel="stylesheet" href="assets/">
     <link rel="stylesheet" href="styles.css">
-    <title>NuesPied</title>
+    <link rel="stylesheet" href="talon.css">
+    <title>Accueil</title>
 </head>
 
 <body>
@@ -28,20 +37,20 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav ">
                     <li class="nav-item">
-                        <a class="nav-link fw-bold" href="index.html">Accueil</a>
+                        <a class="nav-link  fw-bold" href="index.html">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-bold" id="active" aria-current="page" href="nue-pieds-simple.html">Nues
-                            pieds simples</a>
+                        <a class="nav-link fw-bold" href="nue-pieds-simple.html">Nues pieds simples</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link  active fw-bold" href="nuePiedLacets.html">Nues pieds</a>
+                        <a class="nav-link fw-bold" href="nuePiedLacets.html">Nues pieds</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold" href="sandale.html">Sandales</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-bold" id="talon" href="talon.html">Talons</a>
+                        <a class="nav-link fw-bold active" id="talon" id="active" aria-current="page"
+                            href="talon.html">Talons</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold" id="basket" href="basket.html">Baskets</a>
@@ -107,25 +116,23 @@
 
         </div>
     </nav>
-    <!--  -->
-    <div class="BgNuedpiedLacet">
+    <!-- Carousel -->
+    <div class="bg-talon">
+        <h1 class="text-white fw-bold">Talons</h1>
+    </div>
+    <!--Nos produits  -->
+    <main class="main">
+        <div class="container mt-5">
+            <div class="row" id="product">
 
-        <!-- <img src="ImgNues/Frame-17-1.png" alt="" class="bgHeader w-100 img-fluid"> -->
-        <div class="nuesH1">
-            <h1 class="text-white fw-bold text-middle text-center ">Nues pieds lacets
-
-            </h1>
-
+            </div>
         </div>
-    </div>
-    <div class="container d-flex justify-content-center align-items-center flex-wrap pt-5">
-
-    </div>
+    </main>
     <!-- FOOTER -->
     <footer>
         <div class="container mt-5">
             <div class="row justify-content-center p-5 ">
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-sm-12">
                     <h5 class="text-uppercase">Tayeur market</h5>
                     <p>
                         TAYEUR MARKET est une boutique en ligne visant à améliorer la production locale de chaussures.
@@ -138,18 +145,18 @@
                         <div><i class="fa fa-whatsapp" aria-hidden="true"></i></div>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-sm-12">
                     <h5 class="text-uppercase">Derniers articles</h5>
                     <p>Vidéo sur notre dernier arrivage qui va vous épater</p>
                     <p>Pourquoi met-on des sandales à la plage</p>
                     <p>Nouvelle campagne publicitaire sur les chaussures</p>
                     <p></p>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-sm-12">
                     <h5 class="text-uppercase">Contact</h5>
                     <div class="d-flex">
                         <p>Abonnez-vous à notre newsletter:</p>
-                        <p><input class="p-2" type="text" placeholder="E-mail"></p>
+                        <p><input class="p-2 mail" type="text" placeholder="E-mail"></p>
                     </div>
                     <div>
                         <p>Adresse <span class="text-secondary">HLM Grand Yoff, à coté du terminus AIBD</span></p>
@@ -162,16 +169,14 @@
                     </div>
                 </div>
             </div>
+            <div class="footerRightMenu">
+            </div>
         </div>
     </footer>
-    <script src="nuesPiedLacets.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-        crossorigin="anonymous"></script>
-
+    <script type="module" src="talon.js"></script>
 </body>
 
 </html>

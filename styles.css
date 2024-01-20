@@ -170,10 +170,12 @@ a {
     text-decoration: none;
 }
 
-/* .btnPanier:hover {
-    background-color: #fff;
-    color: #e52c2b;
-} */
+.btnAddeventail,
+.add {
+    background-color: #e52c2b;
+    color: #fff;
+    width: 170px;
+}
 
 /* FOOTER */
 footer {
@@ -185,4 +187,57 @@ input {
     background-color: transparent;
     border: 1px solid #fff;
     width: 250px;
+}
+
+@media screen and (max-width: 1176px) {
+    .carousel h1 {
+        font-size: 50px;
+    }
+
+    .bestsellers {
+        flex-direction: column;
+        /* flex-wrap: wrap; */
+    }
+}
+
+@media screen and (max-width: 604px) {
+    .carousel h1 {
+        font-size: 40px;
+    }
+
+    .buttons-accueil {
+        flex-direction: column;
+    }
+
+    .buttons-accueil div {
+        margin-bottom: 15px;
+    }
+
+    .shopBtn button {
+        width: 150px;
+    }
+
+    .footer {
+        align-items: center;
+    }
+
+}
+
+@media screen and (max-width: 523px) {
+    .carousel h1 {
+        font-size: 30px;
+    }
+
+    .buttons-accueil {
+        flex-direction: column;
+    }
+
+    .buttons-accueil div {
+        margin-bottom: 15px;
+    }
+
+    .mail {
+        width: 100%;
+    }
+
 }

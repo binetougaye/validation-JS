@@ -1,0 +1,27 @@
+.bg-talon {
+    background-image: url("images/bgTalon.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 500px;
+    position: relative;
+}
+
+h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 70px;
+}
+
+#talon {
+    color: #e52c2b;
+}
+
+@media screen and (max-width: 523px) {
+
+    .mail {
+        width: 100%;
+    }
+
+}

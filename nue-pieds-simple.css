@@ -4,27 +4,49 @@
     box-sizing: border-box;
 
 }
-.header-section{
+
+.nav-link {
+    columns: #000;
+}
+
+#active {
+    color: #e52c2b;
+}
+
+.button {
+    background-color: #e52c2b;
+    color: #fff;
+    width: 170px;
+}
+
+.header-section {
     height: 80vh;
-    background-image: url('images/header0.jpg');
+    background-image: url('images/bgNuePied.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    position: relative;
 }
-.header-section h1{
+
+.header-section h1 {
     font-size: 70px;
-    display: flex; 
+    display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 150px; 
     color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
 }
-.bloc img{
+
+.bloc img {
     width: 300px;
     height: 250px;
 }
-.ajout{
+
+.ajout {
     display: inline-block;
     width: 100%;
     color: white;
@@ -32,17 +54,21 @@
     padding: 5px;
     cursor: pointer;
 }
-.titre:hover{
+
+.titre:hover {
     color: red;
 
 }
-.bloc .btn-image{
+
+.bloc .btn-image {
     border: none;
 }
-.bloc .whatsaap{
+
+.bloc .whatsaap {
     background-color: #008800;
     color: white;
 }
-.bloc .whatsaap i{
+
+.bloc .whatsaap i {
     color: white;
 }

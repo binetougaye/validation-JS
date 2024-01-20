@@ -1,97 +1,71 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .sandale {
-    background-image: url("https://tayeur.com/wp-content/uploads/2022/07/Frame-17-3.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 400px;
+  background-image: url("https://tayeur.com/wp-content/uploads/2022/07/Frame-17-3.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+  position: relative;
 }
 
 .titre h1 {
-    font-size: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 180px;
+  font-size: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
 }
+
 .container {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+/* @media only screen and (max-width: 768px) {
+  .titre h1 {
+    font-size: 40px;
+    padding-top: 100px;
   }
 
-  .product {
-    position: relative;
-    margin: 10px;
-    overflow: hidden;
-    transition: transform 0.3s;
-    cursor: pointer;
+  body {
+    width: 70%;
+    margin: auto;
+    padding: 0;
   }
 
-  .product img {
+  .navbar-nav {
+    flex-direction: column;
+    text-align: center;
     width: 100%;
-    height: auto;
-    border-radius: 10px;  transform: rotateY('angle');
+    box-sizing: border-box;
   }
 
-  .product:hover {
-    transform: translateY(-30px);
-  
-  }
-
-  .ajout {
-    display: none;
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 8px 16px;
-    background-color: #111;
-    color: #fff;
-    opacity: 0.8;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  .product:hover .ajout {
+  .navbar-nav .nav-item {
+    width: 100%;
     display: block;
   }
-@media only screen and (max-width: 768px) {
-    .titre h1 {
-        font-size: 40px;
-        padding-top: 100px;
-    }
-    body {
-        width: 70%;
-        margin: auto;
-        padding: 0;
-    }
-    .navbar-nav {
-        flex-direction: column;
-        text-align: center;
-        width: 100%;
-        box-sizing:border-box;
-    }
-    .navbar-nav .nav-item {
-        width: 100%;
-        display: block;
-    }
 }
 
 
 @media only screen and (max-width: 480px) {
-    .titre h1 {
-        font-size: 30px;
-        padding-top: 80px;
-    }
+  .titre h1 {
+    font-size: 30px;
+    padding-top: 80px;
+  } */
 }
