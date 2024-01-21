@@ -4,8 +4,6 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebas
 // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
 import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-let user = 0;
-
 const firebaseConfig = {
     apiKey: "AIzaSyAWpBSXZ0zYov-GkuQRl5vfiq9V6UkfsDE",
     authDomain: "validation-js-2024.firebaseapp.com",
@@ -80,12 +78,13 @@ document.getElementById('product').addEventListener('submit', async function (e)
   let name = document.getElementById('name').value;
   let description = document.getElementById('description').value;
   let price = document.getElementById('price').value;
-
+  let color = document.getElementById('color').value;
   try {
     const docRef = await addDoc(collection(db, "articles"), {
       name: name,
       description: description,
       price: price,
+      color: color,
     });
     let idUser = docRef.id
     console.log("Document written with ID: ", idUser);

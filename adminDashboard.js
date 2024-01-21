@@ -6,7 +6,6 @@ import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.c
 
 let user = 0;
 let tbody = document.getElementById('tbody');
-
 function addItemToTable(prenom, nom, email, action) {
 let trow = document.createElement('tr');
 // let td1 = document.createElement('td');
@@ -26,7 +25,6 @@ trow.appendChild(td2);
 trow.appendChild(td3);
 trow.appendChild(td4);
 trow.appendChild(td5);
-
 
 td5.innerHTML = `<i class="bi bi-eye"></i> <i class="bi bi-trash3" id="test" "></i>`
 
@@ -64,7 +62,6 @@ const firebaseConfig = {
     appId: "1:565787116440:web:d6eb3365dbd8c71d70a1ed",
     measurementId: "G-E3S1WFF6H2"
 };
-
 
 // Initialize Firestore
 
@@ -131,9 +128,6 @@ function getAllDataOnce() {
             console.error("Error getting documents: ", error);
         });
 }
-
-
-
     document.getElementById('formulaire').addEventListener('submit', async function (e) {
         e.preventDefault();
 
@@ -158,10 +152,6 @@ function getAllDataOnce() {
             console.error("Error writing document:", error);
         }
     });
-
-
-
-
 window.onload = getAllDataOnce;
 
 // Regle firestore
@@ -182,7 +172,6 @@ let Signout = () => {
     sessionStorage.removeItem("user-info")
     window.location.href = 'SignIn.html'
 }
-
 // function pour verifier les infos user dans le sessionStorage et afficher les infos sur le DOM  
 let CheckCred = () => {
     if (!sessionStorage.getItem("user-creds")) {
